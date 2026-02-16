@@ -29,5 +29,685 @@
 			href="assets/jira_favicon.png" />
 	</head>
 
-	<body></body>
+	<body>
+		<div class="app">
+			<header class="top-bar">
+				<section class="top-bar__left">
+					<button
+						class="top-bar__app-switcher"
+						aria-label="Switch Apps"></button>
+
+					<div class="top-bar__logo"></div>
+
+					<nav
+						class="top-bar__nav"
+						aria-label="Main Navigation">
+						<ul class="top-bar__list">
+							<li class="top-bar__item">
+								<a
+									href="#"
+									class="top-bar__link"
+									>Your work</a
+								>
+							</li>
+
+							<li class="top-bar__item">
+								<a
+									href="#"
+									class="top-bar__link"
+									>Projects</a
+								>
+							</li>
+
+							<li class="top-bar__item">
+								<a
+									href="#"
+									class="top-bar__link"
+									>Filters</a
+								>
+							</li>
+
+							<li class="top-bar__item">
+								<a
+									href="#"
+									class="top-bar__link"
+									>Dashboards</a
+								>
+							</li>
+
+							<li class="top-bar__item">
+								<a
+									href="#"
+									class="top-bar__link"
+									>Teams</a
+								>
+							</li>
+
+							<li class="top-bar__item">
+								<a
+									href="#"
+									class="top-bar__link"
+									>Plans</a
+								>
+							</li>
+
+							<li class="top-bar__item">
+								<a
+									href="#"
+									class="top-bar__link"
+									>Apps</a
+								>
+							</li>
+						</ul>
+					</nav>
+
+					<button class="top-bar__button top-bar__button--primary">
+						Create
+					</button>
+				</section>
+
+				<section class="top-bar__right">
+					<div class="search-bar top-bar__search">
+						<input
+							type="text"
+							class="search-bar__input"
+							placeholder="Search" />
+					</div>
+
+					<div class="top-bar__actions">
+						<button
+							class="top-bar__icon-btn top-bar__icon-btn--notifications"
+							aria-label="Notifications"></button>
+
+						<button
+							class="top-bar__icon-btn top-bar__icon-btn--help"
+							aria-label="Help"></button>
+
+						<button
+							class="top-bar__icon-btn top-bar__icon-btn--settings"
+							aria-label="Settings"></button>
+
+						<div class="top-bar__profile">
+							<img
+								src="avatar.png"
+								alt="User Profile"
+								class="top-bar__avatar" />
+						</div>
+					</div>
+				</section>
+			</header>
+
+			<aside class="side-bar">
+				<section class="side-bar__project-header">
+					<div class="side-bar__project-icon"></div>
+
+					<div class="side-bar__project-info">
+						<span class="side-bar__project-name">beyond Gravity</span>
+
+						<span class="side-bar__project-type">Software project</span>
+					</div>
+				</section>
+
+				<nav class="side-bar__nav">
+					<h2 class="side-bar__heading">PLANNING</h2>
+
+					<ul class="side-bar__list">
+						<li class="side-bar__item">
+							<a
+								href="#"
+								class="side-bar__link"
+								>Roadmap</a
+							>
+						</li>
+
+						<li class="side-bar__item">
+							<a
+								href="#"
+								class="side-bar__link"
+								>Backlog</a
+							>
+						</li>
+
+						<li class="side-bar__item">
+							<a
+								href="#"
+								class="side-bar__link side-bar__link--active"
+								>Board</a
+							>
+						</li>
+
+						<li class="side-bar__item">
+							<a
+								href="#"
+								class="side-bar__link"
+								>Reports</a
+							>
+						</li>
+
+						<li class="side-bar__item">
+							<a
+								href="#"
+								class="side-bar__link"
+								>Issues</a
+							>
+						</li>
+					</ul>
+
+					<h2 class="side-bar__heading">DEVELOPMENT</h2>
+
+					<ul class="side-bar__list">
+						<li class="side-bar__item">
+							<a
+								href="#"
+								class="side-bar__link"
+								>Code</a
+							>
+						</li>
+
+						<li class="side-bar__item">
+							<a
+								href="#"
+								class="side-bar__link"
+								>Security</a
+							>
+						</li>
+
+						<li class="side-bar__item">
+							<a
+								href="#"
+								class="side-bar__link"
+								>Releases</a
+							>
+						</li>
+					</ul>
+				</nav>
+
+				<div class="side-bar__footer">
+					<button class="side-bar__link">Project settings</button>
+				</div>
+
+				<button
+					class="side-bar__resizer"
+					aria-label="Collapse sidebar"></button>
+			</aside>
+
+			<main class="main">
+				<p class="main-board__breadcrumb">Projects / Beyond Gravity</p>
+
+				<header class="main-board__header">
+					<h1 class="main-board__title">Board</h1>
+
+					<div class="main-board__header-actions">
+						<button
+							class="main-board__icon-btn main-board__icon-btn--star"></button>
+
+						<button
+							class="main-board__icon-btn main-board__icon-btn--menu"></button>
+					</div>
+				</header>
+
+				<section class="main-board__controls">
+					<div class="main-board__controls-left">
+						<div class="board-search">
+							<input
+								type="text"
+								class="board-search__input"
+								placeholder="Search" />
+						</div>
+
+						<div class="main-board__avatars"></div>
+
+						<button class="main-board__dropdown main-board__dropdown--epic">
+							Epic
+						</button>
+					</div>
+
+					<div class="main-board__controls-right">
+						<div class="main-board__grouping">
+							<span class="main-board__group-label">Group by</span>
+
+							<button
+								class="main-board__dropdown main-board__dropdown--none">
+								None
+							</button>
+						</div>
+
+						<button class="main-board__button main-board__button--insights">
+							Insights
+						</button>
+					</div>
+				</section>
+
+				<section class="main-board__grid">
+					<div class="board-column">
+						<header class="board-column__header">
+							<span class="board-column__name">To Do</span>
+
+							<span class="board-column__task-count">6</span>
+						</header>
+
+						<div class="board-column__content">
+							<article class="board-card">
+								<div class="board-card__title">
+									Optimize experience for mobile web
+								</div>
+
+								<div class="board-card__tags">
+									<span class="board-card__tag board-card__tag--billing"
+										>Billing</span
+									>
+								</div>
+
+								<div class="board-card__footer">
+									<div class="board-card__footer-left">
+										<span class="board-card__type-icon"></span>
+
+										<span class="board-card__id">NUC-345</span>
+									</div>
+
+									<div class="board-card__footer-right">
+										<img
+											src="avatar.png"
+											class="board-card__creator-avatar"
+											alt="Creator" />
+									</div>
+								</div>
+							</article>
+
+							<article class="board-card">
+								<div class="board-card__title">
+									Onboard workout Options (OWO)
+								</div>
+
+								<div class="board-card__tags">
+									<span
+										class="board-card__tag board-card__tag--accounts"
+										>Accounts</span
+									>
+								</div>
+
+								<div class="board-card__footer">
+									<div class="board-card__footer-left">
+										<span class="board-card__type-icon"></span>
+
+										<span class="board-card__id">NUC-360</span>
+									</div>
+
+									<div class="board-card__footer-right">
+										<img
+											src="avatar.png"
+											class="board-card__creator-avatar"
+											alt="Creator" />
+									</div>
+								</div>
+							</article>
+
+							<article class="board-card">
+								<div class="board-card__title">
+									Multi-dest search UI mobile web
+								</div>
+
+								<div class="board-card__tags">
+									<span
+										class="board-card__tag board-card__tag--accounts"
+										>Accounts</span
+									>
+								</div>
+
+								<div class="board-card__footer">
+									<div class="board-card__footer-left">
+										<span class="board-card__type-icon"></span>
+
+										<span class="board-card__id">NUC-333</span>
+									</div>
+
+									<div class="board-card__footer-right">
+										<img
+											src="avatar.png"
+											class="board-card__creator-avatar"
+											alt="Creator" />
+									</div>
+								</div>
+							</article>
+
+							<article class="board-card">
+								<div class="board-card__title">
+									billing system integration
+								</div>
+
+								<div class="board-card__tags">
+									<span class="board-card__tag board-card__tag--forms"
+										>Forms</span
+									>
+								</div>
+
+								<div class="board-card__footer">
+									<div class="board-card__footer-left">
+										<span class="board-card__type-icon"></span>
+
+										<span class="board-card__id">NUC-340</span>
+									</div>
+
+									<div class="board-card__footer-right">
+										<img
+											src="avatar.png"
+											class="board-card__creator-avatar"
+											alt="Creator" />
+									</div>
+								</div>
+							</article>
+
+							<article class="board-card">
+								<div class="board-card__title">
+									Onboard workout Options (OWO)
+								</div>
+
+								<div class="board-card__tags">
+									<span
+										class="board-card__tag board-card__tag--accounts"
+										>Accounts</span
+									>
+								</div>
+
+								<div class="board-card__footer">
+									<div class="board-card__footer-left">
+										<span class="board-card__type-icon"></span>
+
+										<span class="board-card__id">NUC-385</span>
+									</div>
+
+									<div class="board-card__footer-right">
+										<img
+											src="avatar.png"
+											class="board-card__creator-avatar"
+											alt="Creator" />
+									</div>
+								</div>
+							</article>
+
+							<article class="board-card">
+								<div class="board-card__title">
+									Onboard workout Options (OWO)
+								</div>
+
+								<div class="board-card__tags">
+									<span class="board-card__tag board-card__tag--forms"
+										>Forms</span
+									>
+								</div>
+
+								<div class="board-card__footer">
+									<div class="board-card__footer-left">
+										<span class="board-card__type-icon"></span>
+
+										<span class="board-card__id">NUC-349</span>
+									</div>
+
+									<div class="board-card__footer-right">
+										<img
+											src="avatar.png"
+											class="board-card__creator-avatar"
+											alt="Creator" />
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+
+					<div class="board-column">
+						<header class="board-column__header">
+							<span class="board-column__name">In Progress</span>
+
+							<span class="board-column__task-count">4</span>
+						</header>
+
+						<div class="board-column__content">
+							<article class="board-card">
+								<div class="board-card__title">
+									Optimize experience for mobile web
+								</div>
+
+								<div class="board-card__tags">
+									<span class="board-card__tag board-card__tag--billing"
+										>Billing</span
+									>
+								</div>
+
+								<div class="board-card__footer">
+									<div class="board-card__footer-left">
+										<span class="board-card__type-icon"></span>
+
+										<span class="board-card__id">NUC-345</span>
+									</div>
+
+									<div class="board-card__footer-right">
+										<img
+											src="avatar.png"
+											class="board-card__creator-avatar"
+											alt="Creator" />
+									</div>
+								</div>
+							</article>
+
+							<article class="board-card">
+								<div class="board-card__title">
+									Onboard workout Options (OWO)
+								</div>
+
+								<div class="board-card__tags">
+									<span
+										class="board-card__tag board-card__tag--accounts"
+										>Accounts</span
+									>
+								</div>
+
+								<div class="board-card__footer">
+									<div class="board-card__footer-left">
+										<span class="board-card__type-icon"></span>
+
+										<span class="board-card__id">NUC-360</span>
+									</div>
+
+									<div class="board-card__footer-right">
+										<img
+											src="avatar.png"
+											class="board-card__creator-avatar"
+											alt="Creator" />
+									</div>
+								</div>
+							</article>
+
+							<article class="board-card">
+								<div class="board-card__title">
+									Multi-dest search UI mobile web
+								</div>
+
+								<div class="board-card__tags">
+									<span
+										class="board-card__tag board-card__tag--accounts"
+										>Accounts</span
+									>
+								</div>
+
+								<div class="board-card__footer">
+									<div class="board-card__footer-left">
+										<span class="board-card__type-icon"></span>
+
+										<span class="board-card__id">NUC-333</span>
+									</div>
+
+									<div class="board-card__footer-right">
+										<img
+											src="avatar.png"
+											class="board-card__creator-avatar"
+											alt="Creator" />
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+
+					<div class="board-column">
+						<header class="board-column__header">
+							<span class="board-column__name">In Review</span>
+
+							<span class="board-column__task-count">3</span>
+						</header>
+
+						<div class="board-column__content">
+							<article class="board-card">
+								<div class="board-card__title">
+									Onboard workout Options (OWO)
+								</div>
+
+								<div class="board-card__tags">
+									<span
+										class="board-card__tag board-card__tag--feedback"
+										>Feedback</span
+									>
+								</div>
+
+								<div class="board-card__footer">
+									<div class="board-card__footer-left">
+										<span class="board-card__type-icon"></span>
+
+										<span class="board-card__id">NUC-360</span>
+									</div>
+
+									<div class="board-card__footer-right">
+										<img
+											src="avatar.png"
+											class="board-card__creator-avatar"
+											alt="Creator" />
+									</div>
+								</div>
+							</article>
+
+							<article class="board-card">
+								<div class="board-card__title">
+									Multi-dest search UI mobile web
+								</div>
+
+								<div class="board-card__tags">
+									<span
+										class="board-card__tag board-card__tag--accounts"
+										>Accounts</span
+									>
+								</div>
+
+								<div class="board-card__footer">
+									<div class="board-card__footer-left">
+										<span class="board-card__type-icon"></span>
+
+										<span class="board-card__id">NUC-333</span>
+									</div>
+
+									<div class="board-card__footer-right">
+										<img
+											src="avatar.png"
+											class="board-card__creator-avatar"
+											alt="Creator" />
+									</div>
+								</div>
+							</article>
+
+							<article class="board-card">
+								<div class="board-card__title">
+									Onboard workout Options (OWO)
+								</div>
+
+								<div class="board-card__tags">
+									<span
+										class="board-card__tag board-card__tag--feedback"
+										>Feedback</span
+									>
+								</div>
+
+								<div class="board-card__footer">
+									<div class="board-card__footer-left">
+										<span class="board-card__type-icon"></span>
+
+										<span class="board-card__id">NUC-360</span>
+									</div>
+
+									<div class="board-card__footer-right">
+										<img
+											src="avatar.png"
+											class="board-card__creator-avatar"
+											alt="Creator" />
+									</div>
+								</div>
+							</article>
+
+							<article class="board-card">
+								<div class="board-card__title">
+									Multi-dest search UI mobile web
+								</div>
+
+								<div class="board-card__tags">
+									<span
+										class="board-card__tag board-card__tag--accounts"
+										>Accounts</span
+									>
+								</div>
+
+								<div class="board-card__footer">
+									<div class="board-card__footer-left">
+										<span class="board-card__type-icon"></span>
+
+										<span class="board-card__id">NUC-333</span>
+									</div>
+
+									<div class="board-card__footer-right">
+										<img
+											src="avatar.png"
+											class="board-card__creator-avatar"
+											alt="Creator" />
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+
+					<div class="board-column">
+						<header class="board-column__header">
+							<span class="board-column__name">Done</span>
+
+							<span class="board-column__task-count">1</span>
+						</header>
+
+						<div class="board-column__content">
+							<article class="board-card">
+								<div class="board-card__title">
+									Onboard workout Options (OWO)
+								</div>
+
+								<div class="board-card__tags">
+									<span
+										class="board-card__tag board-card__tag--feedback"
+										>Feedback</span
+									>
+								</div>
+
+								<div class="board-card__footer">
+									<div class="board-card__footer-left">
+										<span class="board-card__type-icon"></span>
+
+										<span class="board-card__id">NUC-360</span>
+									</div>
+
+									<div class="board-card__footer-right">
+										<img
+											src="avatar.png"
+											class="board-card__creator-avatar"
+											alt="Creator" />
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+				</section>
+			</main>
+		</div>
+	</body>
 </html>

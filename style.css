@@ -1,4 +1,4 @@
-/*@ CSS RESETS */
+/*@ #CSS-RESETS */
 * {
 	padding: 0;
 	margin: 0;
@@ -44,7 +44,22 @@ button {
 	outline-color: transparent;
 }
 
-/*@ MEDIA QUERIES */
+/*@ #APP-STYLES */
+.app {
+	display: grid;
+	grid-template-columns: 1fr 5fr;
+}
+
+/*@ #TOP-BAR-STYLES */
+.top-bar {
+	grid-column: span 2;
+}
+
+/*@ #SIDE-BAR-STYLES */
+
+/*@ #MAIN-STYLES */
+
+/*@ #MEDIA-QUERIES */
 @media (prefers-reduced-motion: no-preference) {
 	:has(:target) {
 		scroll-behavior: smooth;
