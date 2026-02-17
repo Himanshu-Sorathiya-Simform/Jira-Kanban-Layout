@@ -33,6 +33,11 @@ figcaption {
 	max-width: 65ch;
 }
 
+ol,
+ul {
+	list-style: none;
+}
+
 img,
 picture,
 svg {
