@@ -106,6 +106,8 @@ button {
 
 /*@ #APP-STYLES */
 .app {
+	background-color: var(--color-text-white);
+
 	display: grid;
 	grid-template-columns: 1fr 5fr;
 }
@@ -115,7 +117,6 @@ button {
 	grid-column: span 2;
 
 	padding: 0 3.2rem;
-	background-color: var(--color-text-white);
 	border-bottom: 1px solid var(--color-text-primary);
 
 	display: flex;
@@ -170,8 +171,8 @@ button {
 }
 
 .header__search-bar {
-	padding: 0.6rem 0.8rem 0.6rem 4rem;
-	border: 2px solid var(--color-text-gray);
+	padding: 0.6rem 1.6rem 0.6rem 4rem;
+	border: 2px solid rgb(207, 207, 207);
 	outline: none;
 	border-radius: 0.6rem;
 	font-size: 1.6rem;
@@ -179,10 +180,10 @@ button {
 
 .header__search-icon {
 	position: absolute;
-	top: 0.9rem;
-	left: 0.9rem;
-	height: 2.4rem;
-	width: 2.4rem;
+	top: 1rem;
+	left: 1.4rem;
+	height: 2rem;
+	width: 2rem;
 }
 
 .header__actions {
@@ -195,6 +196,10 @@ button {
 	color: var(--color-text-primary);
 }
 
+.header__icon-btn--notifications > svg {
+	transform: rotate(45deg);
+}
+
 .header__avatar {
 	height: 3rem;
 	width: 3rem;
@@ -202,6 +207,100 @@ button {
 }
 
 /*@ #SIDEBAR-STYLES */
+.sidebar {
+	display: flex;
+	flex-direction: column;
+	padding: 1rem;
+	gap: 2rem;
+}
+
+.sidebar__project-header {
+	display: flex;
+	align-items: center;
+	gap: 1.5rem;
+	padding-left: 2rem;
+	padding-top: 2rem;
+}
+
+.sidebar__project-logo {
+	width: 3rem;
+	height: 3rem;
+	padding: 0.5rem;
+	border-radius: 0.5rem;
+	background-color: #895ecc;
+}
+
+.sidebar__project-info {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.sidebar__project-name {
+	color: var(--color-text-primary);
+	font-size: 1.6rem;
+	font-weight: 600;
+}
+
+.sidebar__project-type {
+	color: var(--color-text-gray);
+	font-size: 1.4rem;
+	font-weight: 500;
+}
+
+.sidebar__nav {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+.sidebar__heading {
+	margin-top: 1rem;
+	text-transform: uppercase;
+	font-weight: 600;
+	font-size: 1.3rem;
+	color: var(--color-text-primary);
+	padding-left: 2rem;
+}
+
+.sidebar__list {
+	display: flex;
+	flex-direction: column;
+	gap: 0.3rem;
+}
+
+.sidebar__item {
+	padding: 1rem 0;
+	border-radius: 0.5rem;
+	transition: all 0.2s;
+
+	&:hover {
+		background-color: var(--color-primary-accent);
+	}
+}
+
+.sidebar__link {
+	color: var(--color-text-primary);
+	font-size: 1.6rem;
+	padding: 0 2rem;
+
+	display: flex;
+	gap: 1rem;
+}
+
+.sidebar__item--active {
+	background-color: var(--color-primary-accent);
+
+	> a {
+		border-left: 4px solid var(--color-primary);
+		color: var(--color-primary);
+		font-weight: 500;
+	}
+}
+
+.sidebar__footer {
+	border-top: 1px solid rgb(207, 207, 207);
+}
 
 /*@ #MAIN-STYLES */
 
