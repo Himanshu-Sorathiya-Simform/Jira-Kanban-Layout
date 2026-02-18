@@ -7,7 +7,7 @@
 }
 
 html {
-	hanging-punctuation: first last;
+	font-size: 100%;
 }
 
 body {
@@ -60,11 +60,36 @@ button {
 	--color-tag-green: #f5cd47;
 	--color-tag-purple: #6e5dc6;
 
-	--color-card-open: #63BA3C;
+	--color-card-open: #63ba3c;
 
 	--color-text-primary: #455570;
-	--color-text-secondary: #172B4D;
-	--color-text-gray: #7F8A9C;
+	--color-text-secondary: #172b4d;
+	--color-text-gray: #7f8a9c;
+	--color-text-white: #ffffff;
+}
+
+/*@ GENERAL-STYLES */
+.icon--small {
+	height: 1rem;
+	width: 1rem;
+}
+
+.icon--medium {
+	height: 1.5rem;
+	width: 1.5rem;
+}
+
+.btn--primary {
+	color: var(--color-text-white);
+	background-color: var(--color-primary);
+	padding: 1rem 1.5rem;
+	cursor: pointer;
+
+	transition: all 0.3s;
+
+	&:hover {
+		transform: scale(1.05);
+	}
 }
 
 /*@ #APP-STYLES */
@@ -76,6 +101,9 @@ button {
 /*@ #HEADER-STYLES */
 .header {
 	grid-column: span 2;
+
+	background-color: var(--color-text-white);
+	border-bottom: 1px solid var(--color-text-primary);
 
 	display: flex;
 	justify-content: space-between;
