@@ -49,18 +49,40 @@ button {
 	outline-color: transparent;
 }
 
+/*@ ROOT-STYLES */
+:root {
+	--color-primary: #0c66e4;
+	--color-primary-accent: #e9f2ff;
+	--color-secondary: #f7f8f9;
+
+	--color-tag-blue: #1868db;
+	--color-tag-green: #1f845a;
+	--color-tag-green: #f5cd47;
+	--color-tag-purple: #6e5dc6;
+
+	--color-card-open: #63BA3C;
+
+	--color-text-primary: #455570;
+	--color-text-secondary: #172B4D;
+	--color-text-gray: #7F8A9C;
+}
+
 /*@ #APP-STYLES */
 .app {
 	display: grid;
 	grid-template-columns: 1fr 5fr;
 }
 
-/*@ #TOP-BAR-STYLES */
-.top-bar {
+/*@ #HEADER-STYLES */
+.header {
 	grid-column: span 2;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
-/*@ #SIDE-BAR-STYLES */
+/*@ #SIDEBAR-STYLES */
 
 /*@ #MAIN-STYLES */
 
