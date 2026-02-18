@@ -7,7 +7,7 @@
 }
 
 html {
-	font-size: 100%;
+	font-size: 62.5%;
 }
 
 body {
@@ -36,6 +36,10 @@ figcaption {
 ol,
 ul {
 	list-style: none;
+}
+
+a {
+	text-decoration: none;
 }
 
 img,
@@ -70,20 +74,28 @@ button {
 
 /*@ GENERAL-STYLES */
 .icon--small {
-	height: 1rem;
-	width: 1rem;
+	height: 1.6rem;
+	width: 1.6rem;
 }
 
 .icon--medium {
-	height: 1.5rem;
-	width: 1.5rem;
+	height: 2.4rem;
+	width: 2.4rem;
+}
+
+.btn {
+	background-color: transparent;
+	cursor: pointer;
+	border: none;
 }
 
 .btn--primary {
 	color: var(--color-text-white);
 	background-color: var(--color-primary);
-	padding: 1rem 1.5rem;
-	cursor: pointer;
+	padding: 0.6rem 1.8rem;
+	border-radius: 0.6rem;
+	border: none;
+	font-size: 1.6rem;
 
 	transition: all 0.3s;
 
@@ -102,12 +114,91 @@ button {
 .header {
 	grid-column: span 2;
 
+	padding: 0 3.2rem;
 	background-color: var(--color-text-white);
 	border-bottom: 1px solid var(--color-text-primary);
 
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+}
+
+.header__left {
+	display: flex;
+	align-items: center;
+	gap: 4rem;
+}
+
+.header__app-switcher {
+	border: none;
+	color: var(--color-text-primary);
+	background-color: var(--color-text-white);
+}
+
+.header__logo {
+	color: var(--color-primary);
+
+	> img {
+		width: 8rem;
+	}
+}
+
+.header__list {
+	display: flex;
+	align-items: center;
+	gap: 2.4rem;
+}
+
+.header__item {
+	padding: 2rem 0;
+}
+
+.header__link {
+	color: var(--color-text-primary);
+	font-size: 1.6rem;
+}
+
+.header__right {
+	display: flex;
+	align-items: center;
+	gap: 2.4rem;
+}
+
+.header__search {
+	position: relative;
+	color: var(--color-text-primary);
+}
+
+.header__search-bar {
+	padding: 0.6rem 0.8rem 0.6rem 4rem;
+	border: 2px solid var(--color-text-gray);
+	outline: none;
+	border-radius: 0.6rem;
+	font-size: 1.6rem;
+}
+
+.header__search-icon {
+	position: absolute;
+	top: 0.9rem;
+	left: 0.9rem;
+	height: 2.4rem;
+	width: 2.4rem;
+}
+
+.header__actions {
+	display: flex;
+	gap: 2.4rem;
+	align-items: center;
+}
+
+.header__icon-btn > svg {
+	color: var(--color-text-primary);
+}
+
+.header__avatar {
+	height: 3rem;
+	width: 3rem;
+	border-radius: 50%;
 }
 
 /*@ #SIDEBAR-STYLES */

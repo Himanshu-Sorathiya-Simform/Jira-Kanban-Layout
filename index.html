@@ -35,9 +35,17 @@
 				<section class="header__left">
 					<button
 						class="header__app-switcher"
-						aria-label="Switch Apps"></button>
+						aria-label="Switch Apps">
+						<svg class="icon--medium">
+							<use href="./assets/ui-icon-sprite.svg#app-switcher"></use>
+						</svg>
+					</button>
 
-					<div class="header__logo"></div>
+					<div class="header__logo">
+						<img
+							src="./assets/jira_logo_text.png"
+							alt="Jira Logo" />
+					</div>
 
 					<nav
 						class="header__nav"
@@ -101,35 +109,49 @@
 						</ul>
 					</nav>
 
-					<button class="header__button header__button--primary">
-						Create
-					</button>
+					<button class="header__button btn btn--primary">Create</button>
 				</section>
 
 				<section class="header__right">
 					<div class="search-bar header__search">
 						<input
 							type="text"
-							class="search-bar__input"
+							class="header__search-bar"
 							placeholder="Search" />
+
+						<svg class="header__search-icon">
+							<use href="./assets/ui-icon-sprite.svg#search"></use>
+						</svg>
 					</div>
 
 					<div class="header__actions">
 						<button
-							class="header__icon-btn header__icon-btn--notifications"
-							aria-label="Notifications"></button>
+							class="header__icon-btn btn header__icon-btn--notifications"
+							aria-label="Notifications">
+							<svg class="icon--medium">
+								<use href="./assets/ui-icon-sprite.svg#bell"></use>
+							</svg>
+						</button>
 
 						<button
-							class="header__icon-btn header__icon-btn--help"
-							aria-label="Help"></button>
+							class="header__icon-btn btn header__icon-btn--help"
+							aria-label="Help">
+							<svg class="icon--medium">
+								<use href="./assets/ui-icon-sprite.svg#question"></use>
+							</svg>
+						</button>
 
 						<button
-							class="header__icon-btn header__icon-btn--settings"
-							aria-label="Settings"></button>
+							class="header__icon-btn btn header__icon-btn--settings"
+							aria-label="Settings">
+							<svg class="icon--medium">
+								<use href="./assets/ui-icon-sprite.svg#setting"></use>
+							</svg>
+						</button>
 
 						<div class="header__profile">
 							<img
-								src="avatar.png"
+								src="https://watermark.lovepik.com/photo/20211118/large/lovepik-square-girls-square-dance-in-the-evening-girls-picture_500127783.jpg"
 								alt="User Profile"
 								class="header__avatar" />
 						</div>
