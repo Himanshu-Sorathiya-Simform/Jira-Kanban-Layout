@@ -141,10 +141,10 @@
 				</section>
 
 				<section class="header__right">
-					<div class="search-bar header__search">
+					<div class="header__search">
 						<input
 							type="text"
-							class="header__search-bar"
+							class="search-bar header__search-bar"
 							placeholder="Search" />
 
 						<svg class="header__search-icon">
@@ -327,26 +327,53 @@
 
 					<div class="main-board__header-actions">
 						<button
-							class="main-board__icon-btn main-board__icon-btn--star"></button>
+							class="btn main-board__icon-btn main-board__icon-btn--star">
+							<svg class="icon--medium">
+								<use href="./assets/ui-icon-sprite.svg#star"></use>
+							</svg>
+						</button>
 
 						<button
-							class="main-board__icon-btn main-board__icon-btn--menu"></button>
+							class="btn main-board__icon-btn main-board__icon-btn--menu subtle-gray-bg">
+							<svg class="icon--medium">
+								<use href="./assets/ui-icon-sprite.svg#actions"></use>
+							</svg>
+						</button>
 					</div>
 				</header>
 
 				<section class="main-board__controls">
 					<div class="main-board__controls-left">
-						<div class="board-search">
+						<div class="board__search">
 							<input
 								type="text"
-								class="board-search__input"
-								placeholder="Search" />
+								class="search-bar board__search-bar" />
+
+							<svg class="board__search-icon">
+								<use href="./assets/ui-icon-sprite.svg#search"></use>
+							</svg>
 						</div>
 
-						<div class="main-board__avatars"></div>
+						<div class="main-board__avatars">
+							<span class="main-board__avatar blue-bg"></span>
+							<span class="main-board__avatar green-bg"></span>
+							<span class="main-board__avatar yellow-bg"></span>
+							<span class="main-board__avatar purple-bg"></span>
 
-						<button class="main-board__dropdown main-board__dropdown--epic">
-							Epic
+							<span
+								class="main-board__avatar main-board__avatar-placeholder"
+								>+ 5</span
+							>
+						</div>
+
+						<button
+							class="btn main-board__dropdown main-board__dropdown--epic">
+							<span>Epic</span>
+
+							<svg class="icon--small">
+								<use
+									href="./assets/ui-icon-sprite.svg#chevron-down"></use>
+							</svg>
 						</button>
 					</div>
 
@@ -355,13 +382,23 @@
 							<span class="main-board__group-label">Group by</span>
 
 							<button
-								class="main-board__dropdown main-board__dropdown--none">
-								None
+								class="btn main-board__dropdown main-board__dropdown--none subtle-gray-bg">
+								<span>None</span>
+
+								<svg class="icon--small">
+									<use
+										href="./assets/ui-icon-sprite.svg#chevron-down"></use>
+								</svg>
 							</button>
 						</div>
 
-						<button class="main-board__button main-board__button--insights">
-							Insights
+						<button
+							class="btn main-board__button main-board__button--insights subtle-gray-bg">
+							<svg class="icon--medium">
+								<use href="./assets/ui-icon-sprite.svg#chart-up"></use>
+							</svg>
+
+							<span>Insights</span>
 						</button>
 					</div>
 				</section>
