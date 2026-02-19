@@ -54,56 +54,84 @@
 							<li class="header__item">
 								<a
 									href="#"
-									class="header__link"
-									>Your work
+									class="header__link">
+									<span>Your work</span>
+									<svg class="icon--small">
+										<use
+											href="./assets/ui-icon-sprite.svg#chevron-down"></use>
+									</svg>
+								</a>
+							</li>
+
+							<li class="header__item header__item--active">
+								<a
+									href="#"
+									class="header__link">
+									<span>Projects</span>
+									<svg class="icon--small">
+										<use
+											href="./assets/ui-icon-sprite.svg#chevron-down"></use>
+									</svg>
 								</a>
 							</li>
 
 							<li class="header__item">
 								<a
 									href="#"
-									class="header__link"
-									>Projects
+									class="header__link">
+									<span>Filters</span>
+									<svg class="icon--small">
+										<use
+											href="./assets/ui-icon-sprite.svg#chevron-down"></use>
+									</svg>
 								</a>
 							</li>
 
 							<li class="header__item">
 								<a
 									href="#"
-									class="header__link"
-									>Filters
+									class="header__link">
+									<span>Dashboards</span>
+									<svg class="icon--small">
+										<use
+											href="./assets/ui-icon-sprite.svg#chevron-down"></use>
+									</svg>
 								</a>
 							</li>
 
 							<li class="header__item">
 								<a
 									href="#"
-									class="header__link"
-									>Dashboards
+									class="header__link">
+									<span>Teams</span>
+									<svg class="icon--small">
+										<use
+											href="./assets/ui-icon-sprite.svg#chevron-down"></use>
+									</svg>
 								</a>
 							</li>
 
 							<li class="header__item">
 								<a
 									href="#"
-									class="header__link"
-									>Teams
+									class="header__link">
+									<span>Plans</span>
+									<svg class="icon--small">
+										<use
+											href="./assets/ui-icon-sprite.svg#chevron-down"></use>
+									</svg>
 								</a>
 							</li>
 
 							<li class="header__item">
 								<a
 									href="#"
-									class="header__link"
-									>Plans
-								</a>
-							</li>
-
-							<li class="header__item">
-								<a
-									href="#"
-									class="header__link"
-									>Apps
+									class="header__link">
+									<span>Apps</span>
+									<svg class="icon--small">
+										<use
+											href="./assets/ui-icon-sprite.svg#chevron-down"></use>
+									</svg>
 								</a>
 							</li>
 						</ul>
@@ -204,7 +232,7 @@
 						<li class="sidebar__item sidebar__item--active">
 							<a
 								href="#"
-								class="sidebar__link ">
+								class="sidebar__link">
 								<svg class="icon--medium">
 									<use href="./assets/ui-icon-sprite.svg#board"></use>
 								</svg>
@@ -269,16 +297,23 @@
 								<svg class="icon--medium">
 									<use href="./assets/ui-icon-sprite.svg#release"></use>
 								</svg>
-								<span>Release</span>s
+								<span>Release</span>
 							</a>
 						</li>
 					</ul>
 				</nav>
 
 				<div class="sidebar__footer">
-					<button class="sidebar__link btn">Project settings</button>
+					<button class="sidebar__link btn">
+						<svg class="icon--medium">
+							<use href="./assets/ui-icon-sprite.svg#setting"></use>
+						</svg>
+
+						<span>Project settings</span>
+					</button>
 				</div>
 
+				<!-- /*! This button will be used to resize Sidebar from showing full to only icons -->
 				<button
 					class="sidebar__resizer"
 					aria-label="Collapse sidebar"></button>
