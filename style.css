@@ -11,7 +11,6 @@ html {
 }
 
 body {
-	min-height: 100vh;
 	line-height: 1.5;
 	font-family: 'Inter', 'Source Code Pro', system-ui, sans-serif;
 }
@@ -26,8 +25,7 @@ h6 {
 }
 
 p,
-li,
-figcaption {
+li {
 	text-wrap: pretty;
 	max-width: 65ch;
 }
@@ -42,7 +40,6 @@ a {
 }
 
 img,
-picture,
 svg {
 	display: block;
 	max-width: 100%;
@@ -50,6 +47,9 @@ svg {
 
 button {
 	outline-color: transparent;
+	background-color: transparent;
+	cursor: pointer;
+	border: none;
 }
 
 /*@ ROOT-STYLES */
@@ -85,12 +85,6 @@ button {
 	width: 2.4rem;
 }
 
-.btn {
-	background-color: transparent;
-	cursor: pointer;
-	border: none;
-}
-
 .btn--primary {
 	color: var(--color-text-white);
 	background-color: var(--color-primary);
@@ -118,9 +112,12 @@ button {
 /*@ #APP-STYLES */
 .app {
 	background-color: var(--color-text-white);
+	height: 100vh;
 
 	display: grid;
 	grid-template-columns: 1fr 5fr;
+
+	overflow: hidden;
 }
 
 /*@ #HEADER-STYLES */
@@ -173,7 +170,7 @@ button {
 		content: '';
 
 		position: absolute;
-		left: 0;
+		right: 0;
 		bottom: 0;
 
 		height: 3px;
@@ -181,10 +178,11 @@ button {
 		background-color: var(--color-primary);
 		border-radius: 0.2rem;
 
-		transition: all 0.3s;
+		transition: width 0.3s;
 	}
 
 	&:hover::after {
+		left: 0;
 		width: 100%;
 	}
 }
@@ -264,10 +262,13 @@ button {
 .sidebar {
 	padding: 1rem;
 	border-right: 1px solid var(--color-border);
+	min-height: 0;
 
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
+
+	overflow-y: scroll;
 }
 
 .sidebar__project-header {
@@ -406,6 +407,7 @@ button {
 /*@ #MAIN-STYLES */
 .main {
 	padding: 3.5rem 6rem;
+	min-height: 0;
 
 	display: flex;
 	flex-direction: column;
@@ -566,20 +568,26 @@ button {
 
 .main-board__grid {
 	margin-top: 3rem;
+	min-height: 0;
 
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	gap: 2rem;
+
+	overflow: hidden;
 }
 
 .board-column {
 	padding: 1.6rem 0.6rem;
 	background-color: var(--color-secondary);
 	border-radius: 1rem;
+	min-height: 0;
 
 	display: flex;
 	flex-direction: column;
 	gap: 1.8rem;
+
+	overflow: hidden;
 }
 
 .board-column__header {
@@ -595,9 +603,13 @@ button {
 }
 
 .board-column__content {
+	flex: 1;
+
 	display: flex;
 	flex-direction: column;
 	gap: 0.5rem;
+
+	overflow-y: scroll;
 }
 
 .board-card {
