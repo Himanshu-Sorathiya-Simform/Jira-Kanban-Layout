@@ -36,19 +36,33 @@
 		<div class="app">
 			<header class="header">
 				<section class="header__left">
-					<button
+					<label
 						class="header__app-switcher"
 						aria-label="Switch Apps">
 						<svg class="icon--medium">
 							<use href="./assets/ui-icon-sprite.svg#app-switcher"></use>
 						</svg>
-					</button>
+
+						<input
+							type="checkbox"
+							class="hidden"
+							id="toggle1" />
+					</label>
 
 					<div class="header__logo">
 						<img
 							src="./assets/jira_logo_text.png"
 							alt="Jira Logo" />
 					</div>
+
+					<a
+						href="#"
+						class="header__link--hidden hidden">
+						<span>Projects</span>
+						<svg class="icon--small">
+							<use href="./assets/ui-icon-sprite.svg#chevron-down"></use>
+						</svg>
+					</a>
 
 					<nav
 						class="header__nav"
@@ -63,6 +77,11 @@
 										<use
 											href="./assets/ui-icon-sprite.svg#chevron-down"></use>
 									</svg>
+
+									<svg class="icon--small hidden">
+										<use
+											href="./assets/ui-icon-sprite.svg#forward"></use>
+									</svg>
 								</a>
 							</li>
 
@@ -74,6 +93,11 @@
 									<svg class="icon--small">
 										<use
 											href="./assets/ui-icon-sprite.svg#chevron-down"></use>
+									</svg>
+
+									<svg class="icon--small hidden">
+										<use
+											href="./assets/ui-icon-sprite.svg#forward"></use>
 									</svg>
 								</a>
 							</li>
@@ -87,6 +111,11 @@
 										<use
 											href="./assets/ui-icon-sprite.svg#chevron-down"></use>
 									</svg>
+
+									<svg class="icon--small hidden">
+										<use
+											href="./assets/ui-icon-sprite.svg#forward"></use>
+									</svg>
 								</a>
 							</li>
 
@@ -98,6 +127,11 @@
 									<svg class="icon--small">
 										<use
 											href="./assets/ui-icon-sprite.svg#chevron-down"></use>
+									</svg>
+
+									<svg class="icon--small hidden">
+										<use
+											href="./assets/ui-icon-sprite.svg#forward"></use>
 									</svg>
 								</a>
 							</li>
@@ -111,6 +145,11 @@
 										<use
 											href="./assets/ui-icon-sprite.svg#chevron-down"></use>
 									</svg>
+
+									<svg class="icon--small hidden">
+										<use
+											href="./assets/ui-icon-sprite.svg#forward"></use>
+									</svg>
 								</a>
 							</li>
 
@@ -122,6 +161,11 @@
 									<svg class="icon--small">
 										<use
 											href="./assets/ui-icon-sprite.svg#chevron-down"></use>
+									</svg>
+
+									<svg class="icon--small hidden">
+										<use
+											href="./assets/ui-icon-sprite.svg#forward"></use>
 									</svg>
 								</a>
 							</li>
@@ -135,6 +179,11 @@
 										<use
 											href="./assets/ui-icon-sprite.svg#chevron-down"></use>
 									</svg>
+
+									<svg class="icon--small hidden">
+										<use
+											href="./assets/ui-icon-sprite.svg#forward"></use>
+									</svg>
 								</a>
 							</li>
 						</ul>
@@ -144,48 +193,64 @@
 				</section>
 
 				<section class="header__right">
-					<div class="header__search">
-						<input
-							name="search-project"
-							type="text"
-							class="search-bar header__search-bar"
-							placeholder="Search" />
-
-						<svg class="header__search-icon">
-							<use href="./assets/ui-icon-sprite.svg#search"></use>
+					<label
+						class="header__menu-btn hidden"
+						aria-label="Toggle Menu">
+						<svg class="icon--medium">
+							<use href="./assets/ui-icon-sprite.svg#menu"></use>
 						</svg>
-					</div>
 
-					<div class="header__actions">
-						<button
-							class="header__icon-btn header__icon-btn--notifications"
-							aria-label="Notifications">
-							<svg class="icon--medium">
-								<use href="./assets/ui-icon-sprite.svg#bell"></use>
+						<input
+							type="checkbox"
+							class="hidden"
+							id="toggle2" />
+					</label>
+
+					<div>
+						<div class="header__search">
+							<input
+								name="search-project"
+								type="text"
+								class="search-bar header__search-bar"
+								placeholder="Search" />
+
+							<svg class="header__search-icon">
+								<use href="./assets/ui-icon-sprite.svg#search"></use>
 							</svg>
-						</button>
+						</div>
 
-						<button
-							class="header__icon-btn header__icon-btn--help"
-							aria-label="Help">
-							<svg class="icon--medium">
-								<use href="./assets/ui-icon-sprite.svg#question"></use>
-							</svg>
-						</button>
+						<div class="header__actions">
+							<button
+								class="header__icon-btn header__icon-btn--notifications"
+								aria-label="Notifications">
+								<svg class="icon--medium">
+									<use href="./assets/ui-icon-sprite.svg#bell"></use>
+								</svg>
+							</button>
 
-						<button
-							class="header__icon-btn header__icon-btn--settings"
-							aria-label="Settings">
-							<svg class="icon--medium">
-								<use href="./assets/ui-icon-sprite.svg#setting"></use>
-							</svg>
-						</button>
+							<button
+								class="header__icon-btn header__icon-btn--help"
+								aria-label="Help">
+								<svg class="icon--medium">
+									<use
+										href="./assets/ui-icon-sprite.svg#question"></use>
+								</svg>
+							</button>
 
-						<div class="header__profile">
-							<img
-								src="https://i2-prod.mirror.co.uk/incoming/article5614456.ece/ALTERNATES/s1227b/PAY-Lee-Griggs.jpg"
-								alt="User Profile"
-								class="header__avatar" />
+							<button
+								class="header__icon-btn header__icon-btn--settings"
+								aria-label="Settings">
+								<svg class="icon--medium">
+									<use href="./assets/ui-icon-sprite.svg#setting"></use>
+								</svg>
+							</button>
+
+							<div class="header__profile">
+								<img
+									src="https://i2-prod.mirror.co.uk/incoming/article5614456.ece/ALTERNATES/s1227b/PAY-Lee-Griggs.jpg"
+									alt="User Profile"
+									class="header__avatar" />
+							</div>
 						</div>
 					</div>
 				</section>

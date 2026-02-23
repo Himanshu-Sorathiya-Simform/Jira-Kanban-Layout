@@ -78,11 +78,13 @@ button {
 .icon--small {
 	height: 1.6rem;
 	width: 1.6rem;
+	flex-shrink: 0;
 }
 
 .icon--medium {
 	height: 2.4rem;
 	width: 2.4rem;
+	flex-shrink: 0;
 }
 
 .btn--primary {
@@ -95,6 +97,10 @@ button {
 	&:hover {
 		transform: scale(1.05);
 	}
+}
+
+.hidden {
+	display: none;
 }
 
 .search-bar {
@@ -116,6 +122,7 @@ button {
 
 	display: grid;
 	grid-template-columns: 1fr 5fr;
+	grid-template-rows: max-content;
 
 	overflow: hidden;
 }
@@ -130,27 +137,54 @@ button {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	gap: 1rem;
+	gap: 2rem;
 }
 
 .header__left {
+	position: relative;
+
 	display: flex;
 	align-items: center;
 	gap: 4rem;
 }
 
 .header__app-switcher {
+	min-width: max-content;
 	color: var(--color-text-primary);
 	background-color: var(--color-text-white);
-	border: none;
+	cursor: pointer;
 }
 
 .header__logo {
 	color: var(--color-primary);
+	min-width: max-content;
 	cursor: pointer;
 
 	> img {
 		width: 8rem;
+	}
+}
+
+.header__link--hidden {
+	position: relative;
+
+	color: var(--color-primary);
+	font-size: 1.6rem;
+	font-weight: 500;
+	padding: 2rem 0;
+	text-wrap: nowrap;
+
+	&::after {
+		content: '';
+
+		position: absolute;
+		left: 0;
+		bottom: 0;
+
+		height: 3px;
+		width: 100%;
+		background-color: var(--color-primary);
+		border-radius: 0.2rem;
 	}
 }
 
@@ -192,6 +226,7 @@ button {
 	font-size: 1.6rem;
 	font-weight: 500;
 	padding: 2rem 0;
+	text-wrap: nowrap;
 
 	display: flex;
 	align-items: center;
@@ -215,9 +250,23 @@ button {
 }
 
 .header__right {
+	position: relative;
+
+	height: 100%;
+
 	display: flex;
 	align-items: center;
-	gap: 2.4rem;
+
+	> div {
+		display: flex;
+		align-items: center;
+		gap: 2.4rem;
+	}
+}
+
+.header__menu-btn {
+	min-width: max-content;
+	cursor: pointer;
 }
 
 .header__search {
@@ -225,6 +274,7 @@ button {
 }
 
 .header__search-bar {
+	max-width: 100%;
 	color: var(--color-text-primary);
 	padding: 0.6rem 1.6rem 0.6rem 4rem;
 }
@@ -244,12 +294,20 @@ button {
 	gap: 2.4rem;
 }
 
-.header__icon-btn > svg {
-	color: var(--color-text-primary);
+.header__icon-btn {
+	min-width: max-content;
+
+	> svg {
+		color: var(--color-text-primary);
+	}
 }
 
 .header__icon-btn--notifications > svg {
 	transform: rotate(45deg);
+}
+
+.header__profile {
+	min-width: max-content;
 }
 
 .header__avatar {
@@ -268,7 +326,8 @@ button {
 	flex-direction: column;
 	gap: 2rem;
 
-	overflow-y: scroll;
+	overflow-y: auto;
+	scrollbar-width: thin;
 }
 
 .sidebar__project-header {
@@ -609,7 +668,8 @@ button {
 	flex-direction: column;
 	gap: 0.5rem;
 
-	overflow-y: scroll;
+	scrollbar-width: thin;
+	overflow-y: auto;
 }
 
 .board-card {
@@ -626,6 +686,11 @@ button {
 .board-card__title {
 	color: var(--color-text-secondary);
 	font-size: 1.8rem;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	line-clamp: 2;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
 }
 
 .board-card__tags {
@@ -702,4 +767,115 @@ button {
 		scroll-behavior: smooth;
 		scroll-padding-top: 3rem;
 	}
+}
+
+@media (max-width: 1440px) {
+	.header {
+		padding: 0 2rem;
+		gap: 1.6rem;
+	}
+
+	.header__left {
+		gap: 1.6rem;
+	}
+
+	.header__list {
+		gap: 1rem;
+	}
+
+	.header__right {
+		gap: 1.2rem;
+	}
+
+	.header__search {
+		min-width: 45%;
+	}
+
+	.header__search-bar {
+		padding: 0.6rem 0.6rem 0.6rem 4rem;
+	}
+
+	.header__actions {
+		gap: 1rem;
+	}
+}
+
+@media (max-width: 1200px) {
+	.header__list {
+		flex-direction: column;
+	}
+
+	.header__link--hidden {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.header__nav {
+		position: absolute;
+		top: 65px;
+
+		display: none;
+
+		padding: 1rem 1.6rem;
+		background-color: white;
+		border: 1px solid var(--color-border);
+		box-shadow: -4px 4px 4px rgb(215, 215, 215);
+		z-index: 10;
+	}
+
+	.header__left:has(#toggle1:checked) > .header__nav {
+		display: block;
+	}
+
+	.header__list {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		justify-items: start;
+	}
+
+	.header__link {
+		padding: 1.6rem 0;
+
+		> svg:first-of-type {
+			display: none;
+		}
+
+		> svg:nth-of-type(2) {
+			display: inline-block;
+		}
+	}
+}
+
+@media (max-width: 1024px) {
+}
+
+@media (max-width: 768px) {
+	.header__right {
+		> div {
+			position: absolute;
+			top: 64px;
+			right: 0;
+
+			display: none;
+			padding: 1rem 1.6rem;
+			background-color: white;
+			border: 1px solid var(--color-border);
+			box-shadow: -4px 4px 4px rgb(215, 215, 215);
+			z-index: 10;
+
+			flex-direction: column;
+		}
+	}
+
+	.header__right:has(#toggle2:checked) > div {
+		display: flex;
+	}
+
+	.header__menu-btn {
+		display: block;
+	}
+}
+
+@media (max-width: 480px) {
 }
