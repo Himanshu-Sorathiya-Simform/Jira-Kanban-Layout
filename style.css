@@ -94,7 +94,7 @@ button {
 
 	transition: all 0.3s;
 
-	&:hover {
+	&:is(:hover, :focus) {
 		transform: scale(1.05);
 	}
 }
@@ -215,7 +215,7 @@ button {
 		transition: width 0.3s;
 	}
 
-	&:hover::after {
+	&:is(:hover, :has(.header__link:focus))::after {
 		left: 0;
 		width: 100%;
 	}
@@ -277,6 +277,10 @@ button {
 	max-width: 100%;
 	color: var(--color-text-primary);
 	padding: 0.6rem 1.6rem 0.6rem 4rem;
+
+	&:focus {
+		border: 2px solid var(--color-text-primary);
+	}
 }
 
 .header__search-icon {
@@ -299,6 +303,11 @@ button {
 
 	> svg {
 		color: var(--color-text-primary);
+	}
+
+	&:is(:hover, :focus) {
+		outline: 2px solid var(--color-border);
+		outline-offset: 0.5rem;
 	}
 }
 
@@ -395,7 +404,7 @@ button {
 
 	transition: all 0.2s;
 
-	&:hover {
+	&:is(:hover, :has(.sidebar__link:focus)) {
 		background-color: var(--color-primary-accent);
 	}
 }
@@ -457,7 +466,7 @@ button {
 
 		transition: all 0.2s;
 
-		&:hover {
+		&:is(:hover, :focus) {
 			background-color: var(--color-primary-accent);
 		}
 	}
@@ -502,10 +511,11 @@ button {
 	padding: 0.8rem;
 	border-radius: 0.5rem;
 
-	transition: all 0.3s;
+	transition: color 0.3s;
 
-	&:hover {
+	&:is(:hover, :focus) {
 		color: var(--color-primary);
+		outline: 2px solid var(--color-border);
 	}
 }
 
@@ -530,6 +540,10 @@ button {
 .board__search-bar {
 	color: var(--color-text-primary);
 	padding: 0.6rem 4rem 0.6rem 0.6rem;
+
+	&:focus {
+		border: 2px solid var(--color-text-primary);
+	}
 }
 
 .board__search-icon {
@@ -582,10 +596,11 @@ button {
 	align-items: center;
 	gap: 1rem;
 
-	transition: all 0.3s;
+	transition: color 0.3s;
 
-	&:hover {
+	&:is(:hover, :focus) {
 		color: var(--color-primary);
+		outline: 2px solid var(--color-border);
 	}
 }
 
@@ -621,10 +636,11 @@ button {
 	align-items: center;
 	gap: 1rem;
 
-	transition: all 0.3s;
+	transition: color 0.3s;
 
-	&:hover {
+	&:is(:hover, :focus) {
 		color: var(--color-primary);
+		outline: 2px solid var(--color-border);
 	}
 }
 
