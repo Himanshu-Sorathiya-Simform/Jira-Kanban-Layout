@@ -63,7 +63,9 @@ button {
 	--color-tag-yellow: #f5cd47;
 	--color-tag-purple: #6e5dc6;
 
-	--color-card-open: #63ba3c;
+	--color-card-low: #63ba3c;
+	--color-card-medium: #f5cd47;
+	--color-card-high: #1868db;
 
 	--color-text-primary: #455570;
 	--color-text-secondary: #172b4d;
@@ -86,6 +88,8 @@ button {
 	width: 2.4rem;
 	flex-shrink: 0;
 }
+
+
 
 .btn--primary {
 	color: var(--color-text-white);
@@ -750,6 +754,21 @@ button {
 	color: var(--color-text-white);
 }
 
+.board-card__priority--low {
+	background-color: var(--color-card-low);
+	color: var(--color-text-white);
+}
+
+.board-card__priority--medium {
+	background-color: var(--color-card-medium);
+	color: var(--color-text-secondary);
+}
+
+.board-card__priority--high {
+	background-color: var(--color-card-high);
+	color: var(--color-text-white);
+}
+
 .board-card__footer {
 	display: flex;
 	align-items: center;
@@ -763,8 +782,6 @@ button {
 	gap: 0.5rem;
 
 	> svg {
-		color: var(--color-text-white);
-		background-color: var(--color-card-open);
 		padding: 0.5rem;
 		border-radius: 0.5rem;
 	}
@@ -886,7 +903,7 @@ button {
 
 @media (max-width: 1024px) {
 	.app {
-		grid-template-columns: minmax(70px, 1fr) 10fr;
+		grid-template-columns: 70px 10fr;
 	}
 
 	.sidebar__project-info,
