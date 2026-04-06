@@ -7,6 +7,12 @@ const inProgressColumn = document.querySelector('[data-key="in-progress"]');
 const inReviewColumn = document.querySelector('[data-key="in-review"]');
 const doneColumn = document.querySelector('[data-key="done"]');
 
+function addTask(task) {
+	tasks.push({ ...task, id: 15 });
+
+	createTaskCard(tasks.at(-1));
+}
+
 function createTaskCard(task) {
 	const iconClassName =
 		task.priority === 'low' ? 'board-card__priority--low'
@@ -74,3 +80,5 @@ for (const task of tasks) {
 	ele.querySelector('.board-column__task-count').textContent =
 		ele.lastElementChild.children.length;
 });
+
+export { addTask };
