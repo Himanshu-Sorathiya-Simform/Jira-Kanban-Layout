@@ -1,6 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg">
 	<symbol
 		id="app-switcher"
+		fill="currentColor"
 		viewBox="0 0 16 16">
 		<path
 			fill="currentColor"
@@ -9,6 +10,7 @@
 
 	<symbol
 		id="chevron-down"
+		fill="currentColor"
 		viewBox="0 0 16 16">
 		<path
 			fill="currentcolor"
@@ -17,6 +19,7 @@
 
 	<symbol
 		id="bell"
+		fill="currentColor"
 		viewBox="0 0 16 16">
 		<path
 			fill="currentcolor"
@@ -25,6 +28,7 @@
 
 	<symbol
 		id="question"
+		fill="currentColor"
 		viewBox="0 0 16 16">
 		<path
 			fill="currentcolor"
@@ -38,6 +42,7 @@
 
 	<symbol
 		id="setting"
+		fill="currentColor"
 		viewBox="0 0 16 16">
 		<path
 			fill="currentcolor"
@@ -48,6 +53,7 @@
 
 	<symbol
 		id="search"
+		fill="currentColor"
 		viewBox="0 0 16 16">
 		<path
 			fill="currentcolor"
@@ -58,6 +64,7 @@
 
 	<symbol
 		id="star"
+		fill="currentColor"
 		viewBox="0 0 16 16">
 		<path
 			fill="currentcolor"
@@ -68,6 +75,7 @@
 
 	<symbol
 		id="actions"
+		fill="currentColor"
 		viewBox="0 0 16 16">
 		<path
 			fill="currentcolor"
@@ -78,6 +86,7 @@
 
 	<symbol
 		id="chart-up"
+		fill="currentColor"
 		viewBox="0 0 16 16">
 		<path
 			fill="currentcolor"
@@ -89,6 +98,7 @@
 
 	<symbol
 		id="bookmark"
+		fill="currentColor"
 		viewBox="0 0 16 16">
 		<path
 			fill="currentcolor"
@@ -97,6 +107,7 @@
 
 	<symbol
 		id="checkmark"
+		fill="currentColor"
 		viewBox="0 0 16 16">
 		<path
 			fill="currentcolor"
@@ -105,6 +116,7 @@
 
 	<symbol
 		id="roadmap"
+		fill="currentColor"
 		viewBox="0 0 16 16">
 		<path
 			fill="currentcolor"
@@ -115,6 +127,7 @@
 
 	<symbol
 		id="backlog"
+		fill="currentColor"
 		viewBox="0 0 16 16">
 		<path
 			fill="currentcolor"
@@ -125,6 +138,7 @@
 
 	<symbol
 		id="board"
+		fill="currentColor"
 		viewBox="0 0 16 16">
 		<path
 			fill="currentcolor"
@@ -135,6 +149,7 @@
 
 	<symbol
 		id="issue"
+		fill="currentColor"
 		viewBox="0 0 16 16">
 		<path
 			fill="currentcolor"
@@ -143,6 +158,7 @@
 
 	<symbol
 		id="code"
+		fill="currentColor"
 		viewBox="0 0 16 16">
 		<path
 			fill="currentcolor"
@@ -153,6 +169,7 @@
 
 	<symbol
 		id="security"
+		fill="currentColor"
 		viewBox="0 0 16 16">
 		<path
 			fill="currentcolor"
@@ -163,6 +180,7 @@
 
 	<symbol
 		id="release"
+		fill="currentColor"
 		viewBox="0 0 16 16">
 		<path
 			fill="currentcolor"
@@ -173,6 +191,7 @@
 
 	<symbol
 		id="menu"
+		fill="currentColor"
 		viewBox="0 0 16 16">
 		<path
 			fill="currentcolor"
@@ -181,11 +200,39 @@
 
 	<symbol
 		id="forward"
+		fill="currentColor"
 		viewBox="0 0 16 16">
 		<path
 			fill="currentcolor"
 			fill-rule="evenodd"
 			d="M3 2.5a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5v-3H15v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h3v1.5zM10 1h4.25a.75.75 0 0 1 .75.75V6h-1.5V3.56L7.53 9.53 6.47 8.47l5.97-5.97H10z"
 			clip-rule="evenodd"></path>
+	</symbol>
+
+	<symbol
+		id="close"
+		fill="currentColor"
+		viewBox="0 0 24 24">
+		<g
+			id="SVGRepo_bgCarrier"
+			stroke-width="0"></g>
+		<g
+			id="SVGRepo_tracerCarrier"
+			stroke-linecap="round"
+			stroke-linejoin="round"></g>
+		<g id="SVGRepo_iconCarrier">
+			<path
+				d="M3 21.32L21 3.32001"
+				stroke="#000000"
+				stroke-width="1.5"
+				stroke-linecap="round"
+				stroke-linejoin="round"></path>
+			<path
+				d="M3 3.32001L21 21.32"
+				stroke="#000000"
+				stroke-width="1.5"
+				stroke-linecap="round"
+				stroke-linejoin="round"></path>
+		</g>
 	</symbol>
 </svg>

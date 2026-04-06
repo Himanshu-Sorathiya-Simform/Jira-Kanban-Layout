@@ -38,8 +38,7 @@ function createTaskCard(task) {
                 />
             </div>
         </div>
-    </article>
-`;
+    </article>`;
 
 	switch (task.status) {
 		case 'todo':
@@ -57,9 +56,21 @@ function createTaskCard(task) {
 		case 'done':
 			doneColumn.lastElementChild.insertAdjacentHTML('beforeend', html);
 			break;
+
+		default:
+			throw new Error('Unknown Status ', task.status);
 	}
 }
 
 for (const task of tasks) {
 	createTaskCard(task);
 }
+
+[toDoColumn, inProgressColumn, inReviewColumn, doneColumn].forEach((ele) => {
+	ele.querySelector('.board-column__name').textContent = ele.dataset.key
+		.replaceAll('-', ' ')
+		.toUpperCase();
+
+	ele.querySelector('.board-column__task-count').textContent =
+		ele.lastElementChild.children.length;
+});

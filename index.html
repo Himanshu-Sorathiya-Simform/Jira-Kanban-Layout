@@ -25,6 +25,9 @@
 		<link
 			rel="stylesheet"
 			href="./style.css" />
+		<link
+			rel="stylesheet"
+			href="./modal.css" />
 
 		<link
 			rel="icon"
@@ -174,7 +177,9 @@
 						</ul>
 					</nav>
 
-					<button class="header__button btn--primary">Create</button>
+					<button class="header__button header__create-button btn--primary">
+						Create
+					</button>
 				</section>
 
 				<section class="header__right">
@@ -483,9 +488,9 @@
 						class="board-column"
 						data-key="to-do">
 						<header class="board-column__header">
-							<span class="board-column__name">To Do</span>
+							<span class="board-column__name"></span>
 
-							<span class="board-column__task-count">6</span>
+							<span class="board-column__task-count"></span>
 						</header>
 
 						<div class="board-column__content"></div>
@@ -495,9 +500,9 @@
 						class="board-column"
 						data-key="in-progress">
 						<header class="board-column__header">
-							<span class="board-column__name">In Progress</span>
+							<span class="board-column__name"></span>
 
-							<span class="board-column__task-count">4</span>
+							<span class="board-column__task-count"></span>
 						</header>
 
 						<div class="board-column__content"></div>
@@ -507,9 +512,9 @@
 						class="board-column"
 						data-key="in-review">
 						<header class="board-column__header">
-							<span class="board-column__name">In Review</span>
+							<span class="board-column__name"></span>
 
-							<span class="board-column__task-count">3</span>
+							<span class="board-column__task-count"></span>
 						</header>
 
 						<div class="board-column__content"></div>
@@ -519,9 +524,9 @@
 						class="board-column"
 						data-key="done">
 						<header class="board-column__header">
-							<span class="board-column__name">Done</span>
+							<span class="board-column__name"></span>
 
-							<span class="board-column__task-count">1</span>
+							<span class="board-column__task-count"></span>
 						</header>
 
 						<div class="board-column__content"></div>
@@ -530,9 +535,111 @@
 			</main>
 		</div>
 
+		<div class="modal-container">
+			<div class="modal">
+				<div class="modal-header">
+					<h2></h2>
+
+					<span class="modal-close-btn">
+						<svg class="icon--medium">
+							<use href="./assets/ui-icon-sprite.svg#close"></use>
+						</svg>
+					</span>
+				</div>
+
+				<form class="form">
+					<div class="form-group">
+						<label for="task-name">Name</label>
+
+						<input
+							type="text"
+							id="task-name"
+							name="name"
+							placeholder="Enter person name"
+							required />
+					</div>
+
+					<div class="form-group">
+						<label for="task-title">Title</label>
+
+						<input
+							type="text"
+							id="task-title"
+							name="title"
+							placeholder="Enter task title"
+							required />
+					</div>
+
+					<div class="form-group">
+						<label for="task-tag">Tag</label>
+
+						<select
+							id="task-tag"
+							name="tag"
+							required>
+							<option value="">Select tag</option>
+							<option value="Accounts">Accounts</option>
+							<option value="Billing">Billing</option>
+							<option value="Forms">Forms</option>
+							<option value="Feedback">Feedback</option>
+						</select>
+					</div>
+
+					<div class="form-group">
+						<label for="task-status">Status</label>
+
+						<select
+							id="task-status"
+							name="status"
+							required>
+							<option value="">Select status</option>
+							<option value="todo">To Do</option>
+							<option value="inProgress">In Progress</option>
+							<option value="inReview">In Review</option>
+							<option value="done">Done</option>
+						</select>
+					</div>
+
+					<div class="form-group">
+						<label for="task-priority">Priority</label>
+
+						<select
+							id="task-priority"
+							name="priority"
+							required>
+							<option value="">Select priority</option>
+							<option value="low">Low</option>
+							<option value="medium">Medium</option>
+							<option value="high">High</option>
+						</select>
+					</div>
+
+					<div class="form-actions">
+						<button
+							type="button"
+							class="cancel-btn"
+							id="cancelModalBtn">
+							Cancel
+						</button>
+
+						<button
+							type="submit"
+							class="submit-btn">
+							Create Task
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
 		<script
 			defer
 			src="script.js"
+			type="module"></script>
+
+		<script
+			defer
+			src="modal.js"
 			type="module"></script>
 	</body>
 </html>

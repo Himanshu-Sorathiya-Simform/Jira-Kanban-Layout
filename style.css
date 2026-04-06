@@ -65,7 +65,7 @@ button {
 
 	--color-card-low: #63ba3c;
 	--color-card-medium: #f5cd47;
-	--color-card-high: #1868db;
+	--color-card-high: #fe5849;
 
 	--color-text-primary: #455570;
 	--color-text-secondary: #172b4d;
@@ -88,8 +88,6 @@ button {
 	width: 2.4rem;
 	flex-shrink: 0;
 }
-
-
 
 .btn--primary {
 	color: var(--color-text-white);
