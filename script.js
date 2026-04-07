@@ -112,8 +112,8 @@ for (const task of tasks) {
 
 [toDoColumn, inProgressColumn, inReviewColumn, doneColumn].forEach((ele) => {
 	const addCardButton = document.createElement('button');
-	addCardButton.classList.add('board-card');
-	addCardButton.textContent = 'Add new task';
+	addCardButton.classList.add('board-card', 'board-card__title');
+	addCardButton.textContent = '+ add new task';
 
 	ele.querySelector('.board-column__content').append(addCardButton);
 

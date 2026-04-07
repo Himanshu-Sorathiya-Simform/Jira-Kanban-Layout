@@ -476,7 +476,7 @@ button {
 
 /*@ #MAIN-STYLES */
 .main {
-	padding: 3.5rem 6rem;
+	padding: 2rem 2.5rem;
 	min-height: 0;
 	overflow: hidden;
 
@@ -839,10 +839,6 @@ button {
 
 	.header__actions {
 		gap: 1rem;
-	}
-
-	.main {
-		padding: 2rem 2.5rem;
 	}
 
 	.main-board__grid {
