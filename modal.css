@@ -14,11 +14,10 @@
 }
 
 .modal {
-	background: var(--color-text-white);
-
 	width: 100%;
 	max-width: 50rem;
 	padding: 2.5rem;
+	background: var(--color-text-white);
 	border-radius: 12px;
 	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
 
@@ -33,16 +32,15 @@
 	align-items: center;
 
 	h2 {
-		margin: 0;
-		font-size: 2rem;
 		color: var(--color-text-secondary);
+		font-size: 2rem;
 	}
 }
 
 .modal-close-btn {
-	font-size: 3rem;
-	color: var(--color-text-primary);
 	padding: 0.5rem;
+	color: var(--color-text-primary);
+	font-size: 3rem;
 	border-radius: 0.5rem;
 	cursor: pointer;
 
@@ -54,7 +52,7 @@
 	}
 }
 
-.form {
+.modal-form {
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
@@ -67,9 +65,9 @@
 
 	label {
 		display: block;
+		color: var(--color-text-secondary);
 		font-size: 1.2rem;
 		font-weight: 600;
-		color: var(--color-text-secondary);
 	}
 
 	input,
@@ -89,14 +87,35 @@
 	}
 }
 
-.form-actions {
+.modal-label {
+	font-size: 1.4rem;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+
+.modal-value {
+	padding: 0.3rem 0.6rem;
+	font-size: 1.4rem;
+	border-radius: 0.5rem;
+}
+
+.modal-task {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.form-actions,
+.modal-actions {
 	display: flex;
 	justify-content: flex-end;
 	gap: 1rem;
 }
 
 .cancel-btn,
-.submit-btn {
+.submit-btn,
+.delete-btn,
+.edit-btn {
 	padding: 1rem 2rem;
 	font-size: 1.5rem;
 	font-weight: 600;
@@ -107,7 +126,8 @@
 	transition: filter 150ms linear;
 }
 
-.cancel-btn {
+.cancel-btn,
+.edit-btn {
 	color: var(--color-text-secondary);
 	background: var(--color-border);
 
@@ -116,7 +136,8 @@
 	}
 }
 
-.submit-btn {
+.submit-btn,
+.delete-btn {
 	color: var(--color-text-white);
 	background: var(--color-primary);
 

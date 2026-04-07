@@ -1,4 +1,5 @@
 import { tasks, users } from './data.js';
+import { showTaskModal } from './modal.js';
 
 const mainBoard = document.querySelector('.main-board__grid');
 
@@ -8,9 +9,25 @@ const inReviewColumn = document.querySelector('[data-key="in-review"]');
 const doneColumn = document.querySelector('[data-key="done"]');
 
 function addTask(task) {
-	tasks.push({ ...task, id: 15 });
+	tasks.push(task);
 
 	createTaskCard(tasks.at(-1));
+}
+
+function updateTask(task) {
+	const index = tasks.findIndex((t) => t.id === task.id);
+
+	tasks[index] = task;
+
+	updateTaskCard(tasks.at(index));
+}
+
+function deleteTask(id) {
+	const index = tasks.findIndex((t) => t?.id === id);
+
+	tasks[index] = null;
+
+	deleteTaskCard(id);
 }
 
 function createTaskCard(task) {
@@ -48,19 +65,19 @@ function createTaskCard(task) {
 
 	switch (task.status) {
 		case 'todo':
-			toDoColumn.lastElementChild.insertAdjacentHTML('beforeend', html);
+			toDoColumn.querySelector('ul').insertAdjacentHTML('beforeend', html);
 			break;
 
 		case 'inProgress':
-			inProgressColumn.lastElementChild.insertAdjacentHTML('beforeend', html);
+			inProgressColumn.querySelector('ul').insertAdjacentHTML('beforeend', html);
 			break;
 
 		case 'inReview':
-			inReviewColumn.lastElementChild.insertAdjacentHTML('beforeend', html);
+			inReviewColumn.querySelector('ul').insertAdjacentHTML('beforeend', html);
 			break;
 
 		case 'done':
-			doneColumn.lastElementChild.insertAdjacentHTML('beforeend', html);
+			doneColumn.querySelector('ul').insertAdjacentHTML('beforeend', html);
 			break;
 
 		default:
@@ -68,11 +85,38 @@ function createTaskCard(task) {
 	}
 }
 
-for (const task of tasks) {
+function updateTaskCard(task) {
+	const card = [...mainBoard.querySelectorAll('.board-card')].find(
+		(card) =>
+			card.querySelector('.board-card__id')?.textContent.split('-').at(-1) ===
+			task.id,
+	);
+
+	card.remove();
+
 	createTaskCard(task);
 }
 
+function deleteTaskCard(id) {
+	const card = [...mainBoard.querySelectorAll('.board-card')].find(
+		(card) =>
+			card.querySelector('.board-card__id')?.textContent.split('-').at(-1) === id,
+	);
+
+	card.remove();
+}
+
+for (const task of tasks) {
+	task && createTaskCard(task);
+}
+
 [toDoColumn, inProgressColumn, inReviewColumn, doneColumn].forEach((ele) => {
+	const addCardButton = document.createElement('button');
+	addCardButton.classList.add('board-card');
+	addCardButton.textContent = 'Add new task';
+
+	ele.querySelector('.board-column__content').append(addCardButton);
+
 	ele.querySelector('.board-column__name').textContent = ele.dataset.key
 		.replaceAll('-', ' ')
 		.toUpperCase();
@@ -81,4 +125,18 @@ for (const task of tasks) {
 		ele.lastElementChild.children.length;
 });
 
-export { addTask };
+mainBoard.addEventListener('click', (e) => {
+	const target = e.target.closest('.board-card');
+
+	if (!target) return;
+
+	const id = target.querySelector('.board-card__id')?.textContent.split('-').at(-1);
+
+	if (!id) return;
+
+	const task = tasks.find((task) => task?.id === id);
+
+	showTaskModal(task);
+});
+
+export { addTask, deleteTask, updateTask };

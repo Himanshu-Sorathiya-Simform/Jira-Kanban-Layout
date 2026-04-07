@@ -693,6 +693,12 @@ button {
 
 	scrollbar-width: thin;
 	overflow-y: auto;
+
+	> ul {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
 }
 
 .board-card {
