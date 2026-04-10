@@ -4,8 +4,6 @@ const modalContainer = document.querySelector('.modal-container');
 const modal = document.querySelector('.modal');
 
 const form = document.querySelector('.modal-form');
-const modalActions = document.querySelector('.modal-actions');
-const modalForm = document.querySelector('.modal-form');
 const modalTask = document.querySelector('.modal-task');
 
 const modalCloseButton = document.querySelector('.modal-close-btn');
@@ -16,12 +14,23 @@ const modalDeleteButton = document.querySelector('.delete-btn');
 
 const createTaskButton = document.querySelector('.header__create-button');
 
+let currentActiveTask = null;
+
+function resetModal() {
+	modalTask.innerHTML = '';
+
+	form.reset();
+
+	modalSubmitButton.textContent = 'Submit';
+
+	modalContainer.setAttribute('data-view', '');
+}
+
 function showCreateModal() {
 	modalContainer.style.display = 'flex';
-	modalForm.style.display = 'flex';
-	modalActions.style.display = 'none';
-	modalTask.style.display = 'none';
+	modalContainer.setAttribute('data-view', 'form');
 
+	modalSubmitButton.dataset.action = 'create';
 	modal.querySelector('h2').textContent = 'Create New Task';
 
 	modal.querySelector('.submit-btn').textContent = 'Create Task';
@@ -29,10 +38,9 @@ function showCreateModal() {
 
 function showEditModal(task) {
 	modalContainer.style.display = 'flex';
-	modalForm.style.display = 'flex';
-	modalActions.style.display = 'none';
-	modalTask.style.display = 'none';
+	modalContainer.setAttribute('data-view', 'form');
 
+	modalSubmitButton.dataset.action = 'update';
 	modal.querySelector('h2').textContent = `Edit Task : NUC-${task.id}`;
 
 	modal.querySelector('.submit-btn').textContent = 'Update Task';
@@ -50,86 +58,49 @@ function showEditModal(task) {
 
 function showDeleteModal(task) {
 	modalContainer.style.display = 'flex';
-	modalForm.style.display = 'flex';
-	modalActions.style.display = 'none';
-	modalTask.style.display = 'none';
+	modalContainer.setAttribute('data-view', 'delete');
 
+	modalSubmitButton.dataset.action = 'delete';
 	modal.querySelector('h2').textContent = `Delete Task : NUC-${task.id}`;
 
 	modal.querySelector('.submit-btn').textContent = 'Delete Task';
 
-	form.elements.id.value = task.id;
+	modalTask.innerHTML = `
+        <p><span class='modal-value'>Confirm Delete?</span></p>`;
 
-	[...form.querySelectorAll('.form-group')].forEach((ele) => {
-		ele.style.display = 'none';
-	});
+	form.elements.id.value = task.id;
 }
 
 function showTaskModal(task) {
+	currentActiveTask = task;
+
 	modalContainer.style.display = 'flex';
-	modalForm.style.display = 'none';
-	modalActions.style.display = 'flex';
-	modalTask.style.display = 'flex';
+	modalContainer.setAttribute('data-view', 'details');
 
 	modal.querySelector('h2').textContent = `Task : NUC-${task.id}`;
 
-	const html = `
-        <p>
-			<span class='modal-label'>Title : </span>
-			<span class='modal-value'>${task.title}</span>
-		</p>
-
-        <div>
-			<span class='modal-label'>Tags : </span>
-            <span class='modal-value board-card__tag--${task.tag.toLowerCase()}'>${task.tag}</span>
-        </div>
-
-		<p>
-			<span class='modal-label'>Description : </span>
-			<span class='modal-value'>${task.description}</span>
-		</p>
-
-		<p>
-			<span class='modal-label'>Person : </span>
-			<span class='modal-value'>${task.name}</span>
-		</p>
-
-		<p>
-			<span class='modal-label'>Reporting to : </span>
-			<span class='modal-value'>${task.reporter}</span>
-		</p>
-
-		<div>
-			<span class='modal-label'>Priority : </span>
-			<span class='modal-label'>${task.priority}</span>
-		</div>
-
-        <p>
-			<span class='modal-label'>Due date : </span>
-			<span class='modal-value'>${task.dueDate}</span>
-		</p>`;
-
-	modalTask.insertAdjacentHTML('beforeend', html);
-
-	modalEditButton.addEventListener('click', () => {
-		showEditModal(task);
-	});
-
-	modalDeleteButton.addEventListener('click', () => {
-		showDeleteModal(task);
-	});
+	modalTask.innerHTML = `
+        <p><span class='modal-label'>Title : </span><span class='modal-value'>${task.title}</span></p>
+        <div><span class='modal-label'>Tags : </span><span class='modal-value board-card__tag--${task.tag.toLowerCase()}'>${task.tag}</span></div>
+        <p><span class='modal-label'>Description : </span><span class='modal-value'>${task.description}</span></p>
+        <p><span class='modal-label'>Person : </span><span class='modal-value'>${task.name}</span></p>
+        <p><span class='modal-label'>Reporting to : </span><span class='modal-value'>${task.reporter}</span></p>
+        <div><span class='modal-label'>Priority : </span><span class='modal-label'>${task.priority}</span></div>
+        <p><span class='modal-label'>Due date : </span><span class='modal-value'>${task.dueDate}</span></p>`;
 }
 
 function closeModal(e) {
-	if (!e || !e.target.closest('.modal')) modalContainer.style.display = 'none';
+	if (!e || !e.target.closest('.modal')) {
+		modalContainer.style.display = 'none';
 
-	[...modalTask.children].forEach((ele) => {
-		ele.remove();
-	});
+		resetModal();
+	}
 }
 
 function handleSubmission(e) {
 	e.preventDefault();
+
+	const action = modalSubmitButton.dataset.action;
 
 	const id = form.elements.id.value || '15';
 	const name = form.elements.name.value;
@@ -144,6 +115,13 @@ function handleSubmission(e) {
 	const isDelete = e.target.textContent.split(' ')[0].toLowerCase() === 'delete';
 	const isUpdate = e.target.textContent.split(' ')[0].toLowerCase() === 'update';
 	const isCreate = e.target.textContent.split(' ')[0].toLowerCase() === 'create';
+
+	if (action === 'delete') {
+		deleteTask(id);
+		closeModal();
+
+		return;
+	}
 
 	if (
 		id &&
@@ -168,11 +146,9 @@ function handleSubmission(e) {
 			reporter: reporting,
 		};
 
-		if (isDelete) deleteTask(id);
+		if (action === 'update') updateTask(task);
 
-		if (isUpdate) updateTask(task);
-
-		if (isCreate) addTask(task);
+		if (action === 'create') addTask(task);
 
 		closeModal();
 	}
@@ -186,5 +162,17 @@ modalCancelButton.addEventListener('click', () => closeModal());
 modalContainer.addEventListener('click', (e) => closeModal(e));
 
 modalSubmitButton.addEventListener('click', (e) => handleSubmission(e));
+
+modalEditButton.addEventListener('click', () => {
+	if (currentActiveTask) {
+		showEditModal(currentActiveTask);
+	}
+});
+
+modalDeleteButton.addEventListener('click', () => {
+	if (currentActiveTask) {
+		showDeleteModal(currentActiveTask);
+	}
+});
 
 export { showTaskModal };

@@ -20,7 +20,7 @@ const tasks = [
 		name: 'person1',
 		title: 'Optimize mobile web performance for checkout flow',
 		tag: 'Billing',
-		status: 'todo',
+		status: 'to-do',
 		priority: 'medium',
 		description:
 			'Analyze and reduce the bundle size of the checkout page. Focus on lazy loading heavy payment modules to improve Time to Interactive (TTI).',
@@ -32,7 +32,7 @@ const tasks = [
 		name: 'person2',
 		title: 'Implement onboarding flow for travel booking users',
 		tag: 'Accounts',
-		status: 'todo',
+		status: 'to-do',
 		priority: 'medium',
 		description:
 			'Develop a 3-step guided tour for new users. This should cover profile setup, preference selection, and the first search walkthrough.',
@@ -44,7 +44,7 @@ const tasks = [
 		name: 'person1',
 		title: 'Design multi-destination search interface for mobile',
 		tag: 'Accounts',
-		status: 'todo',
+		status: 'to-do',
 		priority: 'high',
 		description:
 			'Create high-fidelity mockups for adding up to 5 destinations in a single trip flow. Ensure the "remove destination" button is thumb-friendly.',
@@ -56,7 +56,7 @@ const tasks = [
 		name: 'person1',
 		title: 'Integrate billing system with third-party APIs',
 		tag: 'Forms',
-		status: 'todo',
+		status: 'to-do',
 		priority: 'high',
 		description:
 			'Connect the backend to Stripe and PayPal APIs. Securely handle webhooks for subscription renewal and payment failures.',
@@ -68,7 +68,7 @@ const tasks = [
 		name: 'person3',
 		title: 'Enhance account linking for repeat travel users',
 		tag: 'Accounts',
-		status: 'todo',
+		status: 'to-do',
 		priority: 'low',
 		description:
 			'Allow users to link multiple social media accounts for faster login. Investigate OAuth2 implementation for Apple ID.',
@@ -80,7 +80,7 @@ const tasks = [
 		name: 'person2',
 		title: 'Create dynamic forms for onboarding workflow',
 		tag: 'Forms',
-		status: 'todo',
+		status: 'to-do',
 		priority: 'medium',
 		description:
 			'Build a reusable form engine that renders inputs based on a JSON schema. Must support validation and conditional logic.',
@@ -92,7 +92,7 @@ const tasks = [
 		name: 'person1',
 		title: 'Refactor mobile UI components for faster rendering',
 		tag: 'Billing',
-		status: 'inProgress',
+		status: 'in-progress',
 		priority: 'high',
 		description:
 			'Replace heavy CSS-in-JS patterns with optimized Tailwind classes in the billing dashboard to reduce script execution time.',
@@ -104,7 +104,7 @@ const tasks = [
 		name: 'person4',
 		title: 'Fix validation issues in travel onboarding forms',
 		tag: 'Forms',
-		status: 'inProgress',
+		status: 'in-progress',
 		priority: 'medium',
 		description:
 			'Fix a bug where the "Submit" button stays disabled even when all fields are valid. Related to the date-picker state management.',
@@ -116,7 +116,7 @@ const tasks = [
 		name: 'person2',
 		title: 'Improve search accuracy for multi-city queries',
 		tag: 'Accounts',
-		status: 'inProgress',
+		status: 'in-progress',
 		priority: 'high',
 		description:
 			'Update the search algorithm to prioritize direct flight paths when users select more than two cities.',
@@ -128,7 +128,7 @@ const tasks = [
 		name: 'person3',
 		title: 'Review feedback on onboarding experience',
 		tag: 'Feedback',
-		status: 'inReview',
+		status: 'in-review',
 		priority: 'medium',
 		description:
 			'Synthesize the results from the April user testing group. Identify the top 3 friction points in the registration process.',
@@ -140,7 +140,7 @@ const tasks = [
 		name: 'person4',
 		title: 'Test edge cases for search UI responsiveness',
 		tag: 'Accounts',
-		status: 'inReview',
+		status: 'in-review',
 		priority: 'high',
 		description:
 			'Verify search result card layouts on iPhone SE and Galaxy Fold. Ensure text does not overflow on narrow screens.',
@@ -152,7 +152,7 @@ const tasks = [
 		name: 'person3',
 		title: 'Validate feedback module integration with backend',
 		tag: 'Feedback',
-		status: 'inReview',
+		status: 'in-review',
 		priority: 'low',
 		description:
 			'Ensure that user comments submitted through the mobile app are correctly stored in the Feedback table with the correct metadata.',
@@ -164,7 +164,7 @@ const tasks = [
 		name: 'person4',
 		title: 'Audit billing-related UI components for consistency',
 		tag: 'Billing',
-		status: 'inReview',
+		status: 'in-review',
 		priority: 'medium',
 		description:
 			'Check that all currency displays follow the international formatting standard. Verify button colors match the brand style guide.',

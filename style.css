@@ -687,12 +687,12 @@ button {
 .board-column__content {
 	flex: 1;
 
+	scrollbar-width: thin;
+	overflow-y: auto;
+
 	display: flex;
 	flex-direction: column;
 	gap: 0.5rem;
-
-	scrollbar-width: thin;
-	overflow-y: auto;
 
 	> ul {
 		display: flex;

@@ -3,15 +3,25 @@ import { showTaskModal } from './modal.js';
 
 const mainBoard = document.querySelector('.main-board__grid');
 
-const toDoColumn = document.querySelector('[data-key="to-do"]');
-const inProgressColumn = document.querySelector('[data-key="in-progress"]');
-const inReviewColumn = document.querySelector('[data-key="in-review"]');
-const doneColumn = document.querySelector('[data-key="done"]');
+function updateColumnCounts() {
+	document.querySelectorAll('.board-column').forEach((column) => {
+		const countElement = column.querySelector('.board-column__task-count');
+		const tasksInColumn = column.querySelectorAll(
+			'.board-card:not(.board-card__title)',
+		);
+
+		if (countElement) {
+			countElement.textContent = tasksInColumn.length;
+		}
+	});
+}
 
 function addTask(task) {
 	tasks.push(task);
 
 	createTaskCard(tasks.at(-1));
+
+	updateColumnCounts();
 }
 
 function updateTask(task) {
@@ -20,24 +30,25 @@ function updateTask(task) {
 	tasks[index] = task;
 
 	updateTaskCard(tasks.at(index));
+
+	updateColumnCounts();
 }
 
 function deleteTask(id) {
 	const index = tasks.findIndex((t) => t?.id === id);
 
-	tasks[index] = null;
+	if (index !== -1) {
+		tasks.splice(index, 1);
+	}
 
 	deleteTaskCard(id);
+
+	updateColumnCounts();
 }
 
 function createTaskCard(task) {
-	const iconClassName =
-		task.priority === 'low' ? 'board-card__priority--low'
-		: task.priority === 'medium' ? 'board-card__priority--medium'
-		: 'board-card__priority--high';
-
 	const html = `
-    <article class='board-card'>
+    <article class='board-card' data-id="${task.id}">
         <p class='board-card__title'>${task.title}</p>
 
         <div class='board-card__tags'>
@@ -46,7 +57,7 @@ function createTaskCard(task) {
 
         <div class='board-card__footer'>
             <div class='board-card__footer-left'>
-                <svg class="icon--medium ${iconClassName}">
+                <svg class="icon--medium board-card__priority--${task.priority}">
                     <use href='./assets/ui-icon-sprite.svg#bookmark'></use>
                 </svg>
 
@@ -63,74 +74,70 @@ function createTaskCard(task) {
         </div>
     </article>`;
 
-	switch (task.status) {
-		case 'todo':
-			toDoColumn.querySelector('ul').insertAdjacentHTML('beforeend', html);
-			break;
-
-		case 'inProgress':
-			inProgressColumn.querySelector('ul').insertAdjacentHTML('beforeend', html);
-			break;
-
-		case 'inReview':
-			inReviewColumn.querySelector('ul').insertAdjacentHTML('beforeend', html);
-			break;
-
-		case 'done':
-			doneColumn.querySelector('ul').insertAdjacentHTML('beforeend', html);
-			break;
-
-		default:
-			throw new Error('Unknown Status ', task.status);
-	}
+	const targetColumn = document.querySelector(`[data-key="${task.status}"]`);
+	targetColumn.querySelector('ul').insertAdjacentHTML('beforeend', html);
 }
 
 function updateTaskCard(task) {
-	const card = [...mainBoard.querySelectorAll('.board-card')].find(
-		(card) =>
-			card.querySelector('.board-card__id')?.textContent.split('-').at(-1) ===
-			task.id,
+	const card = mainBoard.querySelector(`[data-id="${task.id}"]`);
+
+	if (!card) return;
+
+	card.querySelector('.board-card__title').textContent = task.title;
+
+	const tag = card.querySelector('.board-card__tag');
+	tag.textContent = task.tag;
+	tag.className = `board-card__tag board-card__tag--${task.tag.toLowerCase()}`;
+
+	const priorityIcon = card.querySelector('.icon--medium');
+	priorityIcon.classList.remove(
+		'board-card__priority--low',
+		'board-card__priority--medium',
+		'board-card__priority--high',
 	);
+	priorityIcon.classList.add(`board-card__priority--${task.priority}`);
 
-	card.remove();
+	const avatar = card.querySelector('.board-card__creator-avatar');
+	avatar.src = users.get(task.name);
+	avatar.alt = task.name;
 
-	createTaskCard(task);
+	const currentColumn = card.closest('.board-column').dataset.key;
+	if (currentColumn !== task.status) {
+		const targetColumn = document.querySelector(`[data-key="${task.status}"]`);
+
+		targetColumn.querySelector('ul').appendChild(card);
+	}
 }
 
 function deleteTaskCard(id) {
-	const card = [...mainBoard.querySelectorAll('.board-card')].find(
-		(card) =>
-			card.querySelector('.board-card__id')?.textContent.split('-').at(-1) === id,
-	);
+	const card = mainBoard.querySelector(`.board-card[data-id="${id}"]`);
 
 	card.remove();
 }
 
 for (const task of tasks) {
-	task && createTaskCard(task);
+	createTaskCard(task);
 }
 
-[toDoColumn, inProgressColumn, inReviewColumn, doneColumn].forEach((ele) => {
+document.querySelectorAll('.board-column').forEach((ele) => {
 	const addCardButton = document.createElement('button');
 	addCardButton.classList.add('board-card', 'board-card__title');
 	addCardButton.textContent = '+ add new task';
 
 	ele.querySelector('.board-column__content').append(addCardButton);
 
-	ele.querySelector('.board-column__name').textContent = ele.dataset.key
-		.replaceAll('-', ' ')
-		.toUpperCase();
-
-	ele.querySelector('.board-column__task-count').textContent =
-		ele.lastElementChild.children.length;
+	const columnHeader = ele.querySelector('.board-column__name');
+	if (columnHeader && ele.dataset.key) {
+		columnHeader.textContent = ele.dataset.key.replaceAll('-', ' ').toUpperCase();
+	}
 });
+
+updateColumnCounts();
 
 mainBoard.addEventListener('click', (e) => {
 	const target = e.target.closest('.board-card');
 
-	if (!target) return;
-
-	const id = target.querySelector('.board-card__id')?.textContent.split('-').at(-1);
+	const id = target?.dataset.id;
 
 	if (!id) return;
 

@@ -145,3 +145,27 @@
 		filter: brightness(120%);
 	}
 }
+
+.modal-form,
+.modal-actions,
+.modal-task {
+	display: none;
+}
+
+[data-view='form'] .modal-form {
+	display: flex;
+}
+
+[data-view='details'] .modal-task,
+[data-view='details'] .modal-actions {
+	display: flex;
+}
+
+[data-view='delete'] .modal-task,
+[data-view='delete'] .modal-form {
+	display: flex;
+}
+
+[data-view='delete'] .form-group {
+	display: none;
+}
