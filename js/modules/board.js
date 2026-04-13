@@ -1,4 +1,4 @@
-import { tasks, users } from './data.js';
+import { tasks, users } from '../data/data.js';
 
 const mainBoard = document.querySelector('.main-board__grid');
 

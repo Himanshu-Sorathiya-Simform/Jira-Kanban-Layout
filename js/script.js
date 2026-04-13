@@ -1,3 +1,4 @@
+import { tasks } from './data/data.js';
 import {
 	createTaskCard,
 	deleteTaskCard,
@@ -6,9 +7,8 @@ import {
 	initializeTagOptions,
 	updateColumnCounts,
 	updateTaskCard,
-} from './board.js';
-import { tasks } from './data.js';
-import { navigate } from './routing.js';
+} from './modules/board.js';
+import { navigate } from './modules/routing.js';
 
 const mainBoard = document.querySelector('.main-board__grid');
 

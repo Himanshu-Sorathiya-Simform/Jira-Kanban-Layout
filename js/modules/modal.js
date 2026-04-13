@@ -99,5 +99,5 @@ export {
 	showCreateModal,
 	showDeleteModal,
 	showEditModal,
-	showTaskModal
+	showTaskModal,
 };

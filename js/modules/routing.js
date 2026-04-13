@@ -1,4 +1,4 @@
-import { tasks } from './data.js';
+import { tasks } from '../data/data.js';
 import {
 	hideModal,
 	showCreateModal,
