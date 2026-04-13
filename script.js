@@ -1,7 +1,7 @@
 import {
-	createAddNewButtons,
 	createTaskCard,
 	deleteTaskCard,
+	initializeHeader,
 	updateColumnCounts,
 	updateTaskCard,
 } from './board.js';
@@ -40,11 +40,13 @@ function deleteTask(id) {
 	updateColumnCounts();
 }
 
+initializeHeader();
+
 for (const task of tasks) {
 	createTaskCard(task);
 }
 
-createAddNewButtons();
+// createAddNewButtons();
 
 updateColumnCounts();
 

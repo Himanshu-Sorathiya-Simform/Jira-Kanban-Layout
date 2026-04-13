@@ -1,6 +1,11 @@
+import { updateColumnCounts } from './board.js';
 import { closeModal } from './modal.js';
 import { navigate } from './routing.js';
 import { addTask, deleteTask, updateTask } from './script.js';
+
+const allCards = document.querySelectorAll('.board-card');
+
+const searchTaskInput = document.querySelector('.header__search-bar');
 
 const form = document.querySelector('.modal-form');
 
@@ -13,6 +18,16 @@ const modalCloseButton = document.querySelector('.modal-close-btn');
 const modalCancelButton = document.querySelector('.cancel-btn');
 
 const modalSubmitButton = document.querySelector('.submit-btn');
+
+function handlerTaskSearchFilter(e) {
+	const search = searchTaskInput.value.toLowerCase();
+
+	for (const ele of allCards) {
+		ele.style.display = ele.dataset.title.includes(search) ? 'flex' : 'none';
+	}
+
+	updateColumnCounts();
+}
 
 function handleCreate() {
 	navigate('/create');
@@ -88,3 +103,5 @@ modalCancelButton.addEventListener('click', () => closeModal());
 modalContainer.addEventListener('click', (e) => closeModal(e));
 
 modalSubmitButton.addEventListener('click', (e) => handleSubmission(e));
+
+searchTaskInput.addEventListener('input', (e) => handlerTaskSearchFilter(e));

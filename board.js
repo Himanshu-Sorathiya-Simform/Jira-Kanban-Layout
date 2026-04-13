@@ -5,9 +5,9 @@ const mainBoard = document.querySelector('.main-board__grid');
 function updateColumnCounts() {
 	document.querySelectorAll('.board-column').forEach((column) => {
 		const countElement = column.querySelector('.board-column__task-count');
-		const tasksInColumn = column.querySelectorAll(
-			'.board-card:not(.board-card__title)',
-		);
+		const tasksInColumn = [
+			...column.querySelectorAll('.board-card:not(.board-card__title)'),
+		].filter((task) => task.style.display !== 'none');
 
 		if (countElement) {
 			countElement.textContent = tasksInColumn.length;
@@ -17,7 +17,7 @@ function updateColumnCounts() {
 
 function createTaskCard(task) {
 	const html = `
-    <a href="/${task.id}" class='board-card' data-id="${task.id}">
+    <a href="/${task.id}" class='board-card' data-id="${task.id}" data-title="${task.title.toLowerCase()}">
         <p class='board-card__title'>${task.title}</p>
 
         <div class='board-card__tags'>
@@ -84,14 +84,18 @@ function deleteTaskCard(id) {
 	card.remove();
 }
 
-function createAddNewButtons() {
+// function createAddNewButtons() {
+// 	document.querySelectorAll('.board-column').forEach((ele) => {
+// 		const addCardButton = document.createElement('button');
+// 		addCardButton.classList.add('board-card', 'board-card__title');
+// 		addCardButton.textContent = '+ add new task';
+
+// 		ele.querySelector('.board-column__content').append(addCardButton);
+// 	});
+// }
+
+function initializeHeader() {
 	document.querySelectorAll('.board-column').forEach((ele) => {
-		const addCardButton = document.createElement('button');
-		addCardButton.classList.add('board-card', 'board-card__title');
-		addCardButton.textContent = '+ add new task';
-
-		ele.querySelector('.board-column__content').append(addCardButton);
-
 		const columnHeader = ele.querySelector('.board-column__name');
 		if (columnHeader && ele.dataset.key) {
 			columnHeader.textContent = ele.dataset.key.replaceAll('-', ' ').toUpperCase();
@@ -100,9 +104,10 @@ function createAddNewButtons() {
 }
 
 export {
-	createAddNewButtons,
+	// createAddNewButtons,
 	createTaskCard,
 	deleteTaskCard,
+	initializeHeader,
 	updateColumnCounts,
-	updateTaskCard,
+	updateTaskCard
 };
