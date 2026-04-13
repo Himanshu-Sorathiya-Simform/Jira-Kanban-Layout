@@ -2,6 +2,8 @@ import {
 	createTaskCard,
 	deleteTaskCard,
 	initializeHeader,
+	initializePriorityOptions,
+	initializeTagOptions,
 	updateColumnCounts,
 	updateTaskCard,
 } from './board.js';
@@ -49,6 +51,9 @@ for (const task of tasks) {
 // createAddNewButtons();
 
 updateColumnCounts();
+
+initializeTagOptions();
+initializePriorityOptions();
 
 mainBoard.addEventListener('click', (e) => {
 	const target = e.target.closest('.board-card');

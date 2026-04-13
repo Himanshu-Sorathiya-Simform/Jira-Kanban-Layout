@@ -459,27 +459,31 @@
 
 					<div class="main-board__controls-right">
 						<div class="main-board__grouping">
-							<span class="main-board__group-label">Group by</span>
+							<span class="main-board__group-label">Group by Tag</span>
 
-							<button
-								class="main-board__dropdown main-board__dropdown--none subtle-gray-bg">
-								<span>None</span>
-
-								<svg class="icon--small">
-									<use
-										href="./assets/ui-icon-sprite.svg#chevron-down"></use>
-								</svg>
-							</button>
+							<select
+								class="main-board__dropdown main-board__dropdown--tag subtle-gray-bg">
+								<option value="">None</option>
+							</select>
 						</div>
 
-						<button
+						<div class="main-board__grouping">
+							<span class="main-board__group-label">Group by Priority</span>
+
+							<select
+								class="main-board__dropdown main-board__dropdown--priority subtle-gray-bg">
+								<option value="">None</option>
+							</select>
+						</div>
+
+						<!-- <button
 							class="main-board__button main-board__button--insights subtle-gray-bg">
 							<svg class="icon--medium">
 								<use href="./assets/ui-icon-sprite.svg#chart-up"></use>
 							</svg>
 
 							<span>Insights</span>
-						</button>
+						</button> -->
 					</div>
 				</section>
 

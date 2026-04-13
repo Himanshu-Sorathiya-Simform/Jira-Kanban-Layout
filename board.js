@@ -1,4 +1,4 @@
-import { users } from './data.js';
+import { tasks, users } from './data.js';
 
 const mainBoard = document.querySelector('.main-board__grid');
 
@@ -17,7 +17,7 @@ function updateColumnCounts() {
 
 function createTaskCard(task) {
 	const html = `
-    <a href="/${task.id}" class='board-card' data-id="${task.id}" data-title="${task.title.toLowerCase()}">
+    <a href="/${task.id}" class='board-card' data-id="${task.id}" data-title="${task.title.toLowerCase()}" data-priority="${task.priority}">
         <p class='board-card__title'>${task.title}</p>
 
         <div class='board-card__tags'>
@@ -103,11 +103,41 @@ function initializeHeader() {
 	});
 }
 
+function initializeTagOptions() {
+	const tagDropdown = document.querySelector('.main-board__dropdown--tag');
+
+	const tags = new Set(tasks.map((task) => task.tag));
+
+	tags.forEach((tag) => {
+		const option = document.createElement('option');
+		option.value = tag.toLowerCase();
+		option.textContent = tag;
+
+		tagDropdown.appendChild(option);
+	});
+}
+
+function initializePriorityOptions() {
+	const priorityDropdown = document.querySelector('.main-board__dropdown--priority');
+
+	const priorities = new Set(tasks.map((task) => task.priority));
+
+	priorities.forEach((priority) => {
+		const option = document.createElement('option');
+		option.value = priority;
+		option.textContent = priority[0].toUpperCase() + priority.slice(1).toLowerCase();
+
+		priorityDropdown.appendChild(option);
+	});
+}
+
 export {
 	// createAddNewButtons,
 	createTaskCard,
 	deleteTaskCard,
 	initializeHeader,
+	initializePriorityOptions,
+	initializeTagOptions,
 	updateColumnCounts,
-	updateTaskCard
+	updateTaskCard,
 };

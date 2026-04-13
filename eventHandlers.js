@@ -6,6 +6,8 @@ import { addTask, deleteTask, updateTask } from './script.js';
 const allCards = document.querySelectorAll('.board-card');
 
 const searchTaskInput = document.querySelector('.header__search-bar');
+const tagDropdown = document.querySelector('.main-board__dropdown--tag');
+const priorityDropdown = document.querySelector('.main-board__dropdown--priority');
 
 const form = document.querySelector('.modal-form');
 
@@ -19,11 +21,37 @@ const modalCancelButton = document.querySelector('.cancel-btn');
 
 const modalSubmitButton = document.querySelector('.submit-btn');
 
-function handlerTaskSearchFilter(e) {
+function handlerTaskSearchFilter() {
 	const search = searchTaskInput.value.toLowerCase();
 
 	for (const ele of allCards) {
 		ele.style.display = ele.dataset.title.includes(search) ? 'flex' : 'none';
+	}
+
+	updateColumnCounts();
+}
+
+function handleTagFilter() {
+	for (const ele of allCards) {
+		ele.style.display =
+			(
+				!tagDropdown.value ||
+				ele.querySelector('.board-card__tag').textContent.toLowerCase() ===
+					tagDropdown.value
+			) ?
+				'flex'
+			:	'none';
+	}
+
+	updateColumnCounts();
+}
+
+function handlePriorityFilter() {
+	for (const ele of allCards) {
+		ele.style.display =
+			!priorityDropdown.value || ele.dataset.priority === priorityDropdown.value ?
+				'flex'
+			:	'none';
 	}
 
 	updateColumnCounts();
@@ -104,4 +132,6 @@ modalContainer.addEventListener('click', (e) => closeModal(e));
 
 modalSubmitButton.addEventListener('click', (e) => handleSubmission(e));
 
-searchTaskInput.addEventListener('input', (e) => handlerTaskSearchFilter(e));
+searchTaskInput.addEventListener('input', () => handlerTaskSearchFilter());
+tagDropdown.addEventListener('change', () => handleTagFilter());
+priorityDropdown.addEventListener('change', () => handlePriorityFilter());
