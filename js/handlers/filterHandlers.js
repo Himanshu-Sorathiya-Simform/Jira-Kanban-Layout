@@ -1,40 +1,35 @@
 import { updateColumnCounts } from '../modules/board.js';
 
-function handlerTaskSearchFilter() {
-	const search = searchTaskInput.value.toLowerCase();
-
+function updateFilters() {
 	for (const ele of allCards) {
-		ele.style.display = ele.dataset.title.includes(search) ? 'flex' : 'none';
+		ele.style.display = 'flex';
+
+		if (filters.search)
+			ele.style.display = !ele.dataset.title.includes(filters.search) && 'none';
+
+		if (filters.tag)
+			ele.style.display =
+				ele.querySelector('.board-card__tag').textContent.toLowerCase() !==
+					filters.tag && 'none';
+
+		if (filters.priority)
+			ele.style.display = ele.dataset.priority !== filters.priority && 'none';
 	}
+}
+
+function changeFilter(key, value) {
+	filters[key] = value.trim();
+
+	updateFilters();
 
 	updateColumnCounts();
 }
 
-function handleTagFilter() {
-	for (const ele of allCards) {
-		ele.style.display =
-			(
-				!tagDropdown.value ||
-				ele.querySelector('.board-card__tag').textContent.toLowerCase() ===
-					tagDropdown.value
-			) ?
-				'flex'
-			:	'none';
-	}
-
-	updateColumnCounts();
-}
-
-function handlePriorityFilter() {
-	for (const ele of allCards) {
-		ele.style.display =
-			!priorityDropdown.value || ele.dataset.priority === priorityDropdown.value ?
-				'flex'
-			:	'none';
-	}
-
-	updateColumnCounts();
-}
+const filters = {
+	search: '',
+	tag: '',
+	priority: '',
+};
 
 const allCards = document.getElementsByClassName('board-card');
 
@@ -42,6 +37,10 @@ const searchTaskInput = document.querySelector('.header__search-bar');
 const tagDropdown = document.querySelector('.main-board__dropdown--tag');
 const priorityDropdown = document.querySelector('.main-board__dropdown--priority');
 
-searchTaskInput.addEventListener('input', () => handlerTaskSearchFilter());
-tagDropdown.addEventListener('change', () => handleTagFilter());
-priorityDropdown.addEventListener('change', () => handlePriorityFilter());
+searchTaskInput.addEventListener('input', () =>
+	changeFilter('search', searchTaskInput.value.toLowerCase()),
+);
+tagDropdown.addEventListener('change', () => changeFilter('tag', tagDropdown.value));
+priorityDropdown.addEventListener('change', () =>
+	changeFilter('priority', priorityDropdown.value),
+);
