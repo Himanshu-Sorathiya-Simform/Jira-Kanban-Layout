@@ -28,12 +28,17 @@ function resetFilters() {
 	searchTaskInput.value = '';
 	tagDropdown.value = '';
 	priorityDropdown.value = '';
+	searchHeaderPersonInput.value = '';
+	searchBoardPersonInput.value = '';
 
 	updateFilters();
 }
 
 function changeFilter(key, value) {
 	filters[key] = value.trim();
+
+	if (key === 'person')
+		searchHeaderPersonInput.value = searchBoardPersonInput.value = value;
 
 	updateFilters();
 }
@@ -50,17 +55,25 @@ const allCards = document.getElementsByClassName('board-card');
 const searchTaskInput = document.querySelector('.header__search-bar');
 const tagDropdown = document.querySelector('.main-board__dropdown--tag');
 const priorityDropdown = document.querySelector('.main-board__dropdown--priority');
-const searchPersonInput = document.querySelector('.board__search-bar');
+const searchHeaderPersonInput = document.querySelector(
+	'.header__right .board__search-bar',
+);
+const searchBoardPersonInput = document.querySelector(
+	'.main-board__controls-left .board__search-bar',
+);
 
 searchTaskInput.addEventListener('input', () =>
-	changeFilter('search', searchTaskInput.value.toLowerCase()),
+	changeFilter('task', searchTaskInput.value.toLowerCase()),
 );
 tagDropdown.addEventListener('change', () => changeFilter('tag', tagDropdown.value));
 priorityDropdown.addEventListener('change', () =>
 	changeFilter('priority', priorityDropdown.value),
 );
-searchPersonInput.addEventListener('input', () =>
-	changeFilter('person', searchPersonInput.value.toLowerCase()),
+searchHeaderPersonInput.addEventListener('input', () =>
+	changeFilter('person', searchHeaderPersonInput.value.toLowerCase()),
+);
+searchBoardPersonInput.addEventListener('input', () =>
+	changeFilter('person', searchBoardPersonInput.value.toLowerCase()),
 );
 
 export { resetFilters, updateFilters };
