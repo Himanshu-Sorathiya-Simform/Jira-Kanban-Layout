@@ -1,5 +1,6 @@
 import { closeModal } from '../modules/modal.js';
 import { addTask, deleteTask, updateTask } from '../script.js';
+import { updateFilters } from './filterHandlers.js';
 
 function handleSubmission(e) {
 	e.preventDefault();
@@ -18,7 +19,9 @@ function handleSubmission(e) {
 
 	if (action === 'delete') {
 		deleteTask(id);
+
 		closeModal();
+		updateFilters();
 
 		return;
 	}
@@ -46,9 +49,15 @@ function handleSubmission(e) {
 			reporter: reporting,
 		};
 
-		if (action === 'update') updateTask(task);
+		if (action === 'update') {
+			updateTask(task);
+			updateFilters();
+		}
 
-		if (action === 'create') addTask(task);
+		if (action === 'create') {
+			addTask(task);
+			resetFilters();
+		}
 
 		closeModal();
 	}

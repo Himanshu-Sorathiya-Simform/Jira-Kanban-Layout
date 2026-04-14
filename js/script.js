@@ -1,11 +1,11 @@
 import { tasks } from './data/data.js';
+import { updateFilters } from './handlers/filterHandlers.js';
 import {
 	createTaskCard,
 	deleteTaskCard,
 	initializeHeader,
 	initializePriorityOptions,
 	initializeTagOptions,
-	updateColumnCounts,
 	updateTaskCard,
 } from './modules/board.js';
 import { navigate } from './modules/routing.js';
@@ -16,8 +16,6 @@ function addTask(task) {
 	tasks.push(task);
 
 	createTaskCard(tasks.at(-1));
-
-	updateColumnCounts();
 }
 
 function updateTask(task) {
@@ -26,8 +24,6 @@ function updateTask(task) {
 	tasks[index] = task;
 
 	updateTaskCard(tasks.at(index));
-
-	updateColumnCounts();
 }
 
 function deleteTask(id) {
@@ -38,8 +34,6 @@ function deleteTask(id) {
 	}
 
 	deleteTaskCard(id);
-
-	updateColumnCounts();
 }
 
 initializeHeader();
@@ -50,7 +44,7 @@ for (const task of tasks) {
 
 // createAddNewButtons();
 
-updateColumnCounts();
+updateFilters();
 
 initializeTagOptions();
 initializePriorityOptions();

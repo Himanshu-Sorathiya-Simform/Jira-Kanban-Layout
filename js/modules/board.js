@@ -17,7 +17,7 @@ function updateColumnCounts() {
 
 function createTaskCard(task) {
 	const html = `
-    <a href="/${task.id}" class='board-card' data-id="${task.id}" data-title="${task.title.toLowerCase()}" data-priority="${task.priority}">
+    <a href="/${task.id}" class='board-card' data-id="${task.id}" data-title="${task.title.toLowerCase()}" data-priority="${task.priority}" data-person="${task.name.toLowerCase()}">
         <p class='board-card__title'>${task.title}</p>
 
         <div class='board-card__tags'>
@@ -69,6 +69,10 @@ function updateTaskCard(task) {
 	const avatar = card.querySelector('.board-card__creator-avatar');
 	avatar.src = users.get(task.name);
 	avatar.alt = task.name;
+
+	card.dataset.title = task.title;
+	card.dataset.priority = task.priority;
+	card.dataset.person = task.name;
 
 	const currentColumn = card.closest('.board-column').dataset.key;
 	if (currentColumn !== task.status) {
@@ -139,5 +143,5 @@ export {
 	initializePriorityOptions,
 	initializeTagOptions,
 	updateColumnCounts,
-	updateTaskCard,
+	updateTaskCard
 };
