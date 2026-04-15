@@ -1,7 +1,7 @@
 import { closeModal } from '../modules/modal.js';
 import { addTask, deleteTask, updateTask } from '../script.js';
 import { resetFilters } from './filterHandlers.js';
-import { updateSorts } from './sortHandlers.js';
+import { updateOrders } from './orderHandlers.js';
 
 function handleSubmission(e) {
 	e.preventDefault();
@@ -22,7 +22,7 @@ function handleSubmission(e) {
 		deleteTask(id);
 
 		closeModal();
-		updateSorts();
+		updateOrders();
 
 		return;
 	}
@@ -52,7 +52,7 @@ function handleSubmission(e) {
 
 		if (action === 'update') {
 			updateTask(task);
-			updateSorts();
+			updateOrders();
 		}
 
 		if (action === 'create') {

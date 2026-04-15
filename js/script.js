@@ -1,8 +1,9 @@
 import { tasks } from './data/data.js';
-import { updateSorts } from './handlers/sortHandlers.js';
+import { updateOrders } from './handlers/orderHandlers.js';
 import {
 	createTaskCard,
 	deleteTaskCard,
+	initializeGroupOptions,
 	initializeHeader,
 	initializePriorityOptions,
 	initializeSortOptions,
@@ -41,9 +42,10 @@ initializeHeader();
 
 // createAddNewButtons();
 
-updateSorts();
+updateOrders();
 
 initializeSortOptions();
+initializeGroupOptions();
 initializeTagOptions();
 initializePriorityOptions();
 

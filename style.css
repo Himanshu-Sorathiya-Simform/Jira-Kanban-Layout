@@ -610,13 +610,19 @@ button {
 	}
 }
 
+.main-board__controls-middle {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
 .main-board__controls-right {
 	display: flex;
 	align-items: center;
 	gap: 1rem;
 }
 
-.main-board__grouping {
+.main-board__dropdown-container {
 	text-wrap: nowrap;
 
 	display: flex;
@@ -628,7 +634,7 @@ button {
 	}
 }
 
-.main-board__group-label {
+.main-board__dropdown-label {
 	color: var(--color-text-primary);
 	font-size: 1.6rem;
 	font-weight: 600;
@@ -933,6 +939,10 @@ button {
 
 	.sidebar__project-header {
 		padding: 0;
+	}
+
+	.main-board__controls {
+		flex-wrap: wrap;
 	}
 }
 

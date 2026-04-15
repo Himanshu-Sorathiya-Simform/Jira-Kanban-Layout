@@ -467,20 +467,31 @@
 									href="./assets/ui-icon-sprite.svg#chevron-down"></use>
 							</svg>
 						</button>
+					</div>
 
-						<div class="main-board__grouping">
-							<span class="main-board__group-label">Sort</span>
+					<div class="main-board__controls-middle">
+						<div class="main-board__dropdown-container">
+							<span class="main-board__dropdown-label">Sort By</span>
 
 							<select
 								class="main-board__dropdown main-board__dropdown--sort subtle-gray-bg">
 								<option value="">None</option>
 							</select>
 						</div>
+
+						<div class="main-board__dropdown-container">
+							<span class="main-board__dropdown-label">Group By</span>
+
+							<select
+								class="main-board__dropdown main-board__dropdown--group subtle-gray-bg">
+								<option value="">None</option>
+							</select>
+						</div>
 					</div>
 
 					<div class="main-board__controls-right">
-						<div class="main-board__grouping">
-							<span class="main-board__group-label">Group by Tag</span>
+						<div class="main-board__dropdown-container">
+							<span class="main-board__dropdown-label">Filter by Tag</span>
 
 							<select
 								class="main-board__dropdown main-board__dropdown--tag subtle-gray-bg">
@@ -488,8 +499,10 @@
 							</select>
 						</div>
 
-						<div class="main-board__grouping">
-							<span class="main-board__group-label">Group by Priority</span>
+						<div class="main-board__dropdown-container">
+							<span class="main-board__dropdown-label"
+								>Filter by Priority</span
+							>
 
 							<select
 								class="main-board__dropdown main-board__dropdown--priority subtle-gray-bg">
@@ -723,7 +736,7 @@
 
 		<script
 			defer
-			src="js/handlers/sortHandlers.js"
+			src="js/handlers/orderHandlers.js"
 			type="module"></script>
 
 		<script

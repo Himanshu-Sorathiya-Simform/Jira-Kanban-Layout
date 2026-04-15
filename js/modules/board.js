@@ -138,7 +138,14 @@ function initializePriorityOptions() {
 function initializeSortOptions() {
 	const sortDropdown = document.querySelector('.main-board__dropdown--sort');
 
-	const sorts = new Set(['due_date_ascending', 'due_date_descending']);
+	const sorts = new Set([
+		'due_date_ascending',
+		'id_ascending',
+		'title_(A-Z)',
+		'due_date_descending',
+		'id_descending',
+		'title_(Z-A)',
+	]);
 
 	sorts.forEach((sort) => {
 		const option = document.createElement('option');
@@ -152,10 +159,28 @@ function initializeSortOptions() {
 	});
 }
 
+function initializeGroupOptions() {
+	const groupDropdown = document.querySelector('.main-board__dropdown--group');
+
+	const groups = new Set(['person', 'priority', 'tag']);
+
+	groups.forEach((group) => {
+		const option = document.createElement('option');
+		option.value = group;
+		option.textContent = group
+			.split('_')
+			.map((s) => s[0].toUpperCase() + s.slice(1).toLowerCase())
+			.join(' ');
+
+		groupDropdown.appendChild(option);
+	});
+}
+
 export {
 	// createAddNewButtons,
 	createTaskCard,
 	deleteTaskCard,
+	initializeGroupOptions,
 	initializeHeader,
 	initializePriorityOptions,
 	initializeSortOptions,
