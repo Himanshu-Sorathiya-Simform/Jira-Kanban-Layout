@@ -1,10 +1,11 @@
 import { tasks } from './data/data.js';
-import { updateFilters } from './handlers/filterHandlers.js';
+import { updateSorts } from './handlers/sortHandlers.js';
 import {
 	createTaskCard,
 	deleteTaskCard,
 	initializeHeader,
 	initializePriorityOptions,
+	initializeSortOptions,
 	initializeTagOptions,
 	updateTaskCard,
 } from './modules/board.js';
@@ -38,14 +39,11 @@ function deleteTask(id) {
 
 initializeHeader();
 
-for (const task of tasks) {
-	createTaskCard(task);
-}
-
 // createAddNewButtons();
 
-updateFilters();
+updateSorts();
 
+initializeSortOptions();
 initializeTagOptions();
 initializePriorityOptions();
 

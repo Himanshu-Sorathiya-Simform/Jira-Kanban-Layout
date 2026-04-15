@@ -1,4 +1,5 @@
 import { updateColumnCounts } from '../modules/board.js';
+import { updateSorts } from './sortHandlers.js';
 
 function updateFilters() {
 	for (const ele of allCards) {
@@ -28,10 +29,9 @@ function resetFilters() {
 	searchTaskInput.value = '';
 	tagDropdown.value = '';
 	priorityDropdown.value = '';
-	searchHeaderPersonInput.value = '';
-	searchBoardPersonInput.value = '';
+	searchBoardPersonInput.value = searchHeaderPersonInput.value = '';
 
-	updateFilters();
+	updateSorts();
 }
 
 function changeFilter(key, value) {

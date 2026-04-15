@@ -467,6 +467,15 @@
 									href="./assets/ui-icon-sprite.svg#chevron-down"></use>
 							</svg>
 						</button>
+
+						<div class="main-board__grouping">
+							<span class="main-board__group-label">Sort</span>
+
+							<select
+								class="main-board__dropdown main-board__dropdown--sort subtle-gray-bg">
+								<option value="">None</option>
+							</select>
+						</div>
 					</div>
 
 					<div class="main-board__controls-right">
@@ -710,6 +719,11 @@
 		<script
 			defer
 			src="js/handlers/filterHandlers.js"
+			type="module"></script>
+
+		<script
+			defer
+			src="js/handlers/sortHandlers.js"
 			type="module"></script>
 
 		<script

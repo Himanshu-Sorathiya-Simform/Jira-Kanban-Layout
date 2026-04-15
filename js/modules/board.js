@@ -135,13 +135,31 @@ function initializePriorityOptions() {
 	});
 }
 
+function initializeSortOptions() {
+	const sortDropdown = document.querySelector('.main-board__dropdown--sort');
+
+	const sorts = new Set(['due_date_ascending', 'due_date_descending']);
+
+	sorts.forEach((sort) => {
+		const option = document.createElement('option');
+		option.value = sort;
+		option.textContent = sort
+			.split('_')
+			.map((s) => s[0].toUpperCase() + s.slice(1).toLowerCase())
+			.join(' ');
+
+		sortDropdown.appendChild(option);
+	});
+}
+
 export {
 	// createAddNewButtons,
 	createTaskCard,
 	deleteTaskCard,
 	initializeHeader,
 	initializePriorityOptions,
+	initializeSortOptions,
 	initializeTagOptions,
 	updateColumnCounts,
-	updateTaskCard
+	updateTaskCard,
 };
