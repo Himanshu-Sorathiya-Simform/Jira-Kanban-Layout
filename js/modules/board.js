@@ -109,15 +109,20 @@ function initializeHeader() {
 
 function initializeTagOptions() {
 	const tagDropdown = document.querySelector('.main-board__dropdown--tag');
+	const formTagDropdown = document.querySelector('#task-tag');
 
 	const tags = new Set(tasks.map((task) => task.tag));
 
 	tags.forEach((tag) => {
 		const option = document.createElement('option');
-		option.value = tag.toLowerCase();
-		option.textContent = tag;
+		option.value = tag;
+		option.textContent = tag
+			.split(' ')
+			.map((w) => w[0].toUpperCase() + w.slice(1))
+			.join('');
 
 		tagDropdown.appendChild(option);
+		formTagDropdown.appendChild(option);
 	});
 }
 

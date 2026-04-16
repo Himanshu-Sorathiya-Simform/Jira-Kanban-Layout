@@ -1,5 +1,5 @@
 import { tasks } from './data/data.js';
-import { updateOrders } from './handlers/orderHandlers.js';
+import { updateFilterAndOrder } from './handlers/filterAndOrderHandlers.js';
 import {
 	createTaskCard,
 	deleteTaskCard,
@@ -42,12 +42,12 @@ initializeHeader();
 
 // createAddNewButtons();
 
-updateOrders();
-
 initializeSortOptions();
 initializeGroupOptions();
 initializeTagOptions();
 initializePriorityOptions();
+
+updateFilterAndOrder();
 
 mainBoard.addEventListener('click', (e) => {
 	const target = e.target.closest('.board-card');

@@ -471,18 +471,28 @@
 
 					<div class="main-board__controls-middle">
 						<div class="main-board__dropdown-container">
-							<span class="main-board__dropdown-label">Sort By</span>
+							<label
+								for="sort"
+								class="main-board__dropdown-label"
+								>Sort By</label
+							>
 
 							<select
+								id="sort"
 								class="main-board__dropdown main-board__dropdown--sort subtle-gray-bg">
 								<option value="">None</option>
 							</select>
 						</div>
 
 						<div class="main-board__dropdown-container">
-							<span class="main-board__dropdown-label">Group By</span>
+							<label
+								for="group"
+								class="main-board__dropdown-label"
+								>Group By</label
+							>
 
 							<select
+								id="group"
 								class="main-board__dropdown main-board__dropdown--group subtle-gray-bg">
 								<option value="">None</option>
 							</select>
@@ -491,20 +501,28 @@
 
 					<div class="main-board__controls-right">
 						<div class="main-board__dropdown-container">
-							<span class="main-board__dropdown-label">Filter by Tag</span>
+							<label
+								for="filter_tag"
+								class="main-board__dropdown-label"
+								>Filter by Tag</label
+							>
 
 							<select
+								id="filter_tag"
 								class="main-board__dropdown main-board__dropdown--tag subtle-gray-bg">
 								<option value="">None</option>
 							</select>
 						</div>
 
 						<div class="main-board__dropdown-container">
-							<span class="main-board__dropdown-label"
-								>Filter by Priority</span
+							<label
+								for="filter_priority"
+								class="main-board__dropdown-label"
+								>Filter by Priority</label
 							>
 
 							<select
+								id="filter_priority"
 								class="main-board__dropdown main-board__dropdown--priority subtle-gray-bg">
 								<option value="">None</option>
 							</select>
@@ -662,10 +680,6 @@
 							name="tag"
 							required>
 							<option value="">Select tag</option>
-							<option value="Accounts">Accounts</option>
-							<option value="Billing">Billing</option>
-							<option value="Forms">Forms</option>
-							<option value="Feedback">Feedback</option>
 						</select>
 					</div>
 
@@ -731,12 +745,7 @@
 
 		<script
 			defer
-			src="js/handlers/filterHandlers.js"
-			type="module"></script>
-
-		<script
-			defer
-			src="js/handlers/orderHandlers.js"
+			src="js/handlers/filterAndOrderHandlers.js"
 			type="module"></script>
 
 		<script

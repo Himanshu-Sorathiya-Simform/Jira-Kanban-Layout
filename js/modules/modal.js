@@ -40,7 +40,10 @@ function showTaskModal(task) {
 
 	modalTask.innerHTML = `
         <p><span class='modal-label'>Title : </span><span class='modal-value'>${task.title}</span></p>
-        <div><span class='modal-label'>Tags : </span><span class='modal-value board-card__tag--${task.tag.toLowerCase()}'>${task.tag}</span></div>
+        <div><span class='modal-label'>Tags : </span><span class='modal-value board-card__tag--${task.tag.toLowerCase()}'>${task.tag
+			.split(' ')
+			.map((w) => w[0].toUpperCase() + w.slice(1))
+			.join('')}</span></div>
         <p><span class='modal-label'>Description : </span><span class='modal-value'>${task.description}</span></p>
         <p><span class='modal-label'>Person : </span><span class='modal-value'>${task.name}</span></p>
         <p><span class='modal-label'>Reporting to : </span><span class='modal-value'>${task.reporter}</span></p>

@@ -19,7 +19,7 @@ const tasks = [
 		id: '24',
 		name: 'person2',
 		title: 'Draft technical requirements for Q3 billing update',
-		tag: 'Billing',
+		tag: 'billing',
 		status: 'to-do',
 		priority: 'medium',
 		description:
@@ -31,7 +31,7 @@ const tasks = [
 		id: '5',
 		name: 'person3',
 		title: 'Enhance account linking for repeat travel users',
-		tag: 'Accounts',
+		tag: 'accounts',
 		status: 'to-do',
 		priority: 'low',
 		description:
@@ -43,7 +43,7 @@ const tasks = [
 		id: '18',
 		name: 'person1',
 		title: 'Sanitize user input on registration forms',
-		tag: 'Forms',
+		tag: 'forms',
 		status: 'in-progress',
 		priority: 'high',
 		description:
@@ -55,7 +55,7 @@ const tasks = [
 		id: '1',
 		name: 'person1',
 		title: 'Optimize mobile web performance for checkout flow',
-		tag: 'Billing',
+		tag: 'billing',
 		status: 'to-do',
 		priority: 'medium',
 		description:
@@ -67,7 +67,7 @@ const tasks = [
 		id: '31',
 		name: 'person4',
 		title: 'Analyze churn data from deleted accounts',
-		tag: 'Accounts',
+		tag: 'accounts',
 		status: 'to-do',
 		priority: 'medium',
 		description:
@@ -79,7 +79,7 @@ const tasks = [
 		id: '12',
 		name: 'person3',
 		title: 'Validate feedback module integration with backend',
-		tag: 'Feedback',
+		tag: 'feedback',
 		status: 'in-review',
 		priority: 'low',
 		description:
@@ -91,7 +91,7 @@ const tasks = [
 		id: '20',
 		name: 'person4',
 		title: 'Add multi-step progress bar to search forms',
-		tag: 'Forms',
+		tag: 'forms',
 		status: 'to-do',
 		priority: 'low',
 		description:
@@ -103,7 +103,7 @@ const tasks = [
 		id: '8',
 		name: 'person4',
 		title: 'Fix validation issues in travel onboarding forms',
-		tag: 'Forms',
+		tag: 'forms',
 		status: 'in-progress',
 		priority: 'medium',
 		description:
@@ -115,7 +115,7 @@ const tasks = [
 		id: '42',
 		name: 'person2',
 		title: 'Automate weekly billing reconciliation report',
-		tag: 'Billing',
+		tag: 'billing',
 		status: 'to-do',
 		priority: 'high',
 		description:
@@ -127,7 +127,7 @@ const tasks = [
 		id: '3',
 		name: 'person1',
 		title: 'Design multi-destination search interface for mobile',
-		tag: 'Accounts',
+		tag: 'accounts',
 		status: 'to-do',
 		priority: 'high',
 		description:
@@ -139,7 +139,7 @@ const tasks = [
 		id: '15',
 		name: 'person2',
 		title: 'Update feedback loop for beta testers',
-		tag: 'Feedback',
+		tag: 'feedback',
 		status: 'to-do',
 		priority: 'medium',
 		description:
@@ -151,7 +151,7 @@ const tasks = [
 		id: '9',
 		name: 'person2',
 		title: 'Improve search accuracy for multi-city queries',
-		tag: 'Accounts',
+		tag: 'accounts',
 		status: 'in-progress',
 		priority: 'high',
 		description:
@@ -163,7 +163,7 @@ const tasks = [
 		id: '27',
 		name: 'person3',
 		title: 'Categorize NPS survey responses',
-		tag: 'Feedback',
+		tag: 'feedback',
 		status: 'in-progress',
 		priority: 'medium',
 		description:
@@ -175,7 +175,7 @@ const tasks = [
 		id: '4',
 		name: 'person1',
 		title: 'Integrate billing system with third-party APIs',
-		tag: 'Forms',
+		tag: 'forms',
 		status: 'to-do',
 		priority: 'high',
 		description:
@@ -187,7 +187,7 @@ const tasks = [
 		id: '11',
 		name: 'person4',
 		title: 'Test edge cases for search UI responsiveness',
-		tag: 'Accounts',
+		tag: 'accounts',
 		status: 'in-review',
 		priority: 'high',
 		description: 'Verify search result card layouts on iPhone SE and Galaxy Fold.',
@@ -198,7 +198,7 @@ const tasks = [
 		id: '6',
 		name: 'person2',
 		title: 'Create dynamic forms for onboarding workflow',
-		tag: 'Forms',
+		tag: 'forms',
 		status: 'to-do',
 		priority: 'medium',
 		description:
@@ -210,7 +210,7 @@ const tasks = [
 		id: '55',
 		name: 'person1',
 		title: 'Fix broken password reset link in Accounts',
-		tag: 'Accounts',
+		tag: 'accounts',
 		status: 'done',
 		priority: 'high',
 		description:
@@ -222,7 +222,7 @@ const tasks = [
 		id: '13',
 		name: 'person4',
 		title: 'Audit billing-related UI components for consistency',
-		tag: 'Billing',
+		tag: 'billing',
 		status: 'in-review',
 		priority: 'medium',
 		description:
@@ -234,7 +234,7 @@ const tasks = [
 		id: '7',
 		name: 'person1',
 		title: 'Refactor mobile UI components for faster rendering',
-		tag: 'Billing',
+		tag: 'billing',
 		status: 'in-progress',
 		priority: 'high',
 		description:
@@ -246,7 +246,7 @@ const tasks = [
 		id: '10',
 		name: 'person3',
 		title: 'Review feedback on onboarding experience',
-		tag: 'Feedback',
+		tag: 'feedback',
 		status: 'in-review',
 		priority: 'medium',
 		description: 'Synthesize the results from the April user testing group.',
@@ -257,7 +257,7 @@ const tasks = [
 		id: '14',
 		name: 'person1',
 		title: 'Finalize and deploy onboarding feature to production',
-		tag: 'Feedback',
+		tag: 'feedback',
 		status: 'done',
 		priority: 'high',
 		description:
