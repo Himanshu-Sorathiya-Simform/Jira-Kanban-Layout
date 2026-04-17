@@ -1,55 +1,52 @@
 import { tasks } from '../data/data.js';
 import { createTaskCard, updateColumnCounts } from '../modules/board.js';
 
+function applyFilters(tasks, filters) {
+	return tasks.filter(
+		({ title, tag, name, priority }) =>
+			(!filters.task || title.includes(filters.task)) &&
+			(!filters.tag || tag === filters.tag) &&
+			(!filters.person || name.includes(filters.person)) &&
+			(!filters.priority || priority === filters.priority),
+	);
+}
+
+const sortHandlers = {
+	due_date_ascending: (a, b) => new Date(a.dueDate) - new Date(b.dueDate),
+
+	due_date_descending: (a, b) => new Date(b.dueDate) - new Date(a.dueDate),
+
+	id_ascending: (a, b) => +a.id - +b.id,
+	id_descending: (a, b) => +b.id - +a.id,
+
+	'title_(A-Z)': (a, b) => a.title.localeCompare(b.title),
+	'title_(Z-A)': (a, b) => b.title.localeCompare(a.title),
+};
+
+const groupHandlers = {
+	person: (a, b) => a.name.localeCompare(b.name),
+	priority: (a, b) => priorityMap[a.priority] - priorityMap[b.priority],
+	tag: (a, b) => a.tag.localeCompare(b.tag),
+};
+
 function updateFilterAndOrder() {
-	let tempTasks = tasks;
+	let x = performance.now();
 
 	document.querySelectorAll('.board-column__content ul').forEach((column) => {
 		column.innerHTML = '';
 	});
 
-	if (filters.task) {
-		tempTasks = tempTasks.filter((task) => task.title.includes(filters.task));
-	}
-	if (filters.tag) {
-		tempTasks = tempTasks.filter((task) => task.tag === filters.tag);
-	}
-	if (filters.person) {
-		tempTasks = tempTasks.filter((task) => task.name.includes(filters.person));
-	}
-	if (filters.priority) {
-		tempTasks = tempTasks.filter((task) => task.priority === filters.priority);
+	let result = applyFilters(tasks, filters);
+
+	if (orders.sort && sortHandlers[orders.sort]) {
+		result.sort(sortHandlers[orders.sort]);
 	}
 
-	if (orders.sort === 'due_date_ascending') {
-		tempTasks = tempTasks.toSorted((a, b) => {
-			return new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime();
-		});
-	} else if (orders.sort === 'due_date_descending') {
-		tempTasks = tempTasks.toSorted((a, b) => {
-			return new Date(b.dueDate).getTime() - new Date(a.dueDate).getTime();
-		});
-	} else if (orders.sort === 'id_ascending') {
-		tempTasks = tempTasks.toSorted((a, b) => +a.id - +b.id);
-	} else if (orders.sort === 'id_descending') {
-		tempTasks = tempTasks.toSorted((a, b) => +b.id - +a.id);
-	} else if (orders.sort === 'title_(A-Z)') {
-		tempTasks = tempTasks.toSorted((a, b) => a.title.localeCompare(b.title));
-	} else if (orders.sort === 'title_(Z-A)') {
-		tempTasks = tempTasks.toSorted((a, b) => b.title.localeCompare(a.title));
+	if (orders.group && groupHandlers[orders.group]) {
+		result.sort(groupHandlers[orders.group]);
 	}
 
-	if (orders.group === 'person') {
-		tempTasks = tempTasks.toSorted((a, b) => a.name.localeCompare(b.name));
-	} else if (orders.group === 'priority') {
-		tempTasks = tempTasks.toSorted(
-			(a, b) => priorityMap[a.priority] - priorityMap[b.priority],
-		);
-	} else if (orders.group === 'tag') {
-		tempTasks = tempTasks.toSorted((a, b) => a.tag.localeCompare(b.tag));
-	}
-
-	for (const card of tempTasks) {
+	for (const card of result) {
 		createTaskCard(card);
 	}
 

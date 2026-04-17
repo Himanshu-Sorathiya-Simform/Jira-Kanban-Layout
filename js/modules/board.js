@@ -17,7 +17,7 @@ function updateColumnCounts() {
 
 function createTaskCard(task) {
 	const html = `
-    <a href="/${task.id}" class='board-card' data-id="${task.id}" data-title="${task.title.toLowerCase()}" data-priority="${task.priority}" data-person="${task.name.toLowerCase()}">
+    <a href="/${task.id}" class='board-card' data-id="${task.id}">
         <p class='board-card__title'>${task.title}</p>
 
         <div class='board-card__tags'>
@@ -27,7 +27,7 @@ function createTaskCard(task) {
         <div class='board-card__footer'>
             <div class='board-card__footer-left'>
                 <svg class="icon--medium board-card__priority--${task.priority}">
-                    <use href='./assets/ui-icon-sprite.svg#bookmark'></use>
+                    <use href='/assets/ui-icon-sprite.svg#bookmark'></use>
                 </svg>
 
                 <span class='board-card__id'>NUC-${task.id}</span>
@@ -122,7 +122,7 @@ function initializeTagOptions() {
 			.join('');
 
 		tagDropdown.appendChild(option);
-		formTagDropdown.appendChild(option);
+		formTagDropdown.appendChild(option.cloneNode(true));
 	});
 }
 
