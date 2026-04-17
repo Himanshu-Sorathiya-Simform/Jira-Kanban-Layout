@@ -88,16 +88,6 @@ function deleteTaskCard(id) {
 	card.remove();
 }
 
-// function createAddNewButtons() {
-// 	document.querySelectorAll('.board-column').forEach((ele) => {
-// 		const addCardButton = document.createElement('button');
-// 		addCardButton.classList.add('board-card', 'board-card__title');
-// 		addCardButton.textContent = '+ add new task';
-
-// 		ele.querySelector('.board-column__content').append(addCardButton);
-// 	});
-// }
-
 function initializeHeader() {
 	document.querySelectorAll('.board-column').forEach((ele) => {
 		const columnHeader = ele.querySelector('.board-column__name');
@@ -108,12 +98,18 @@ function initializeHeader() {
 }
 
 function initializeTagOptions() {
-	const tasks = JSON.parse(localStorage.getItem('jira_tasks')) || [];
-
 	const tagDropdown = document.querySelector('.main-board__dropdown--tag');
 	const formTagDropdown = document.querySelector('#task-tag');
 
-	const tags = new Set(tasks.map((task) => task.tag));
+	const tags = new Set([
+		'feedback',
+		'forms',
+		'accounts',
+		'billing',
+		'authentication',
+		'notifications',
+		'reports',
+	]);
 
 	tags.forEach((tag) => {
 		const option = document.createElement('option');
@@ -129,11 +125,9 @@ function initializeTagOptions() {
 }
 
 function initializePriorityOptions() {
-	const tasks = JSON.parse(localStorage.getItem('jira_tasks')) || [];
-
 	const priorityDropdown = document.querySelector('.main-board__dropdown--priority');
 
-	const priorities = new Set(tasks.map((task) => task.priority));
+	const priorities = new Set(['high', 'medium', 'low']);
 
 	priorities.forEach((priority) => {
 		const option = document.createElement('option');
@@ -185,15 +179,36 @@ function initializeGroupOptions() {
 	});
 }
 
+function initializeAvatars() {
+	const avatarsBoard = document.querySelector('.main-board__avatars');
+
+	if (users.size - 4 > 0) {
+		const spanElement = document.createElement('span');
+		spanElement.classList.add('main-board__avatar', 'main-board__avatar-placeholder');
+		spanElement.textContent = `+ ${users.size - 4}`;
+
+		avatarsBoard.appendChild(spanElement);
+	}
+
+	[...users].slice(0, 4).forEach((user) => {
+		const userElement = document.createElement('img');
+		userElement.src = user[1];
+		userElement.alt = user[0];
+		userElement.classList.add('main-board__avatar');
+
+		avatarsBoard.appendChild(userElement);
+	});
+}
+
 export {
-	// createAddNewButtons,
 	createTaskCard,
 	deleteTaskCard,
+	initializeAvatars,
 	initializeGroupOptions,
 	initializeHeader,
 	initializePriorityOptions,
 	initializeSortOptions,
 	initializeTagOptions,
 	updateColumnCounts,
-	updateTaskCard,
+	updateTaskCard
 };

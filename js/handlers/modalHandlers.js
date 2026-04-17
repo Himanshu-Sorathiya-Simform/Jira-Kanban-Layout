@@ -1,5 +1,5 @@
 import { closeModal } from '../modules/modal.js';
-import { addTask, deleteTask, updateTask } from '../script.js';
+import { addTask, deleteTask, updateTask } from '../utils/taskUtils.js';
 import { resetFilters, updateFilterAndOrder } from './filterAndOrderHandlers.js';
 
 function handleSubmission(e) {

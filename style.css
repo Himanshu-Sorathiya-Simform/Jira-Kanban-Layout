@@ -636,7 +636,7 @@ button {
 
 .main-board__dropdown-label {
 	color: var(--color-text-primary);
-	font-size: 1.6rem;
+	font-size: 1.2rem;
 	font-weight: 600;
 	text-transform: uppercase;
 }
@@ -752,12 +752,19 @@ button {
 	text-transform: uppercase;
 }
 
-.board-card__tag--billing {
+.board-card__tag {
+	background-color: var(--color-text-light-gray);
+	color: var(--color-text-white);
+}
+
+.board-card__tag--billing,
+.board-card__tag--reports {
 	background-color: var(--color-tag-blue);
 	color: var(--color-text-white);
 }
 
-.board-card__tag--accounts {
+.board-card__tag--accounts,
+.board-card__tag--notifications {
 	background-color: var(--color-tag-green);
 	color: var(--color-text-white);
 }
@@ -767,7 +774,8 @@ button {
 	color: var(--color-text-secondary);
 }
 
-.board-card__tag--forms {
+.board-card__tag--forms,
+.board-card__tag--authentication {
 	background-color: var(--color-tag-purple);
 	color: var(--color-text-white);
 }
