@@ -1,4 +1,3 @@
-import { tasks } from '../data/data.js';
 import { createTaskCard, updateColumnCounts } from '../modules/board.js';
 
 function applyFilters(tasks, filters) {
@@ -30,7 +29,7 @@ const groupHandlers = {
 };
 
 function updateFilterAndOrder() {
-	let x = performance.now();
+	const tasks = JSON.parse(localStorage.getItem('jira_tasks')) || [];
 
 	document.querySelectorAll('.board-column__content ul').forEach((column) => {
 		column.innerHTML = '';

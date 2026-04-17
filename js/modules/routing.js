@@ -1,4 +1,3 @@
-import { tasks } from '../data/data.js';
 import {
 	hideModal,
 	showCreateModal,
@@ -18,6 +17,8 @@ window.onpopstate = function () {
 };
 
 function routeHandler() {
+	const tasks = JSON.parse(localStorage.getItem('jira_tasks')) || [];
+
 	const lastIndex = location.pathname.lastIndexOf('/');
 	const id = location.pathname.slice(lastIndex + 1);
 

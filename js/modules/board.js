@@ -1,4 +1,4 @@
-import { tasks, users } from '../data/data.js';
+import { users } from '../data/data.js';
 
 const mainBoard = document.querySelector('.main-board__grid');
 
@@ -108,6 +108,8 @@ function initializeHeader() {
 }
 
 function initializeTagOptions() {
+	const tasks = JSON.parse(localStorage.getItem('jira_tasks')) || [];
+
 	const tagDropdown = document.querySelector('.main-board__dropdown--tag');
 	const formTagDropdown = document.querySelector('#task-tag');
 
@@ -127,6 +129,8 @@ function initializeTagOptions() {
 }
 
 function initializePriorityOptions() {
+	const tasks = JSON.parse(localStorage.getItem('jira_tasks')) || [];
+
 	const priorityDropdown = document.querySelector('.main-board__dropdown--priority');
 
 	const priorities = new Set(tasks.map((task) => task.priority));

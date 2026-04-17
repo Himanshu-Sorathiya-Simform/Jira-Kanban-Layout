@@ -7,7 +7,7 @@ function handleSubmission(e) {
 
 	const action = modalSubmitButton.dataset.action;
 
-	const id = form.elements.id.value || '15';
+	const id = form.elements.id.value || localStorage.getItem('jira_task_id');
 	const name = form.elements.name.value;
 	const title = form.elements.title.value;
 	const tag = form.elements.tag.value;
