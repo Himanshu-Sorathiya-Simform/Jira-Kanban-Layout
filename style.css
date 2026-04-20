@@ -825,6 +825,12 @@ button {
 	border-radius: 50%;
 }
 
+.board-card__footer-right {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+}
+
 /*@ #MEDIA-QUERIES */
 @media (prefers-reduced-motion: no-preference) {
 	:has(:target) {

@@ -2,6 +2,17 @@ import { closeModal } from '../modules/modal.js';
 import { addTask, deleteTask, updateTask } from '../utils/taskUtils.js';
 import { resetFilters, updateFilterAndOrder } from './filterAndOrderHandlers.js';
 
+function toggleFavorites() {
+	const tasks = JSON.parse(localStorage.getItem('jira_tasks')) || [];
+	const id = form.elements.id.value;
+
+	const task = tasks.find((t) => t.id === id);
+
+	updateTask({ ...task, isFavorites: !task.isFavorites });
+	closeModal();
+	updateFilterAndOrder();
+}
+
 function handleSubmission(e) {
 	e.preventDefault();
 
@@ -71,8 +82,12 @@ const modalCancelButton = document.querySelector('.cancel-btn');
 
 const modalSubmitButton = document.querySelector('.submit-btn');
 
+const modalFavoritesButton = document.querySelector('.favorites-btn');
+
 modalContainer.addEventListener('click', (e) => closeModal(e));
 modalCloseButton.addEventListener('click', () => closeModal());
 modalCancelButton.addEventListener('click', () => closeModal());
 
 modalSubmitButton.addEventListener('click', (e) => handleSubmission(e));
+
+modalFavoritesButton.addEventListener('click', () => toggleFavorites());

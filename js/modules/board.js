@@ -34,6 +34,18 @@ function createTaskCard(task) {
             </div>
 
             <div class="board-card__footer-right">
+				${
+					task.isFavorites ?
+						`
+					<span>
+						<svg class="icon--small">
+							<use href="assets/ui-icon-sprite.svg#star"></use>
+						</svg>
+					</span>
+					`
+					:	''
+				}
+
                 <img
                     src="${users.get(task.name)}"
                     alt="${task.name}"

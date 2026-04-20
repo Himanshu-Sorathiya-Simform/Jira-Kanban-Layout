@@ -34,6 +34,16 @@
 	h2 {
 		color: var(--color-text-secondary);
 		font-size: 2rem;
+
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+
+		svg {
+			color: var(--color-card-medium);
+			fill: var(--color-card-medium);
+			/* bgc: var(--color-card-medium); */
+		}
 	}
 }
 
@@ -115,19 +125,22 @@
 .cancel-btn,
 .submit-btn,
 .delete-btn,
-.edit-btn {
+.edit-btn,
+.favorites-btn {
 	padding: 1rem 2rem;
 	font-size: 1.5rem;
 	font-weight: 600;
 	border: none;
 	border-radius: 0.5rem;
 	cursor: pointer;
+	white-space: nowrap;
 
 	transition: filter 150ms linear;
 }
 
 .cancel-btn,
-.edit-btn {
+.edit-btn,
+.favorites-btn {
 	color: var(--color-text-secondary);
 	background: var(--color-border);
 

@@ -12,7 +12,7 @@ import { navigate } from './modules/routing.js';
 
 localStorage.setItem(
 	'jira_task_id',
-	localStorage.getItem('jira_task_id') ? localStorage.getItem('jira_task_id') : 1,
+	localStorage.getItem('jira_task_id') ? localStorage.getItem('jira_task_id') : '85',
 );
 
 const mainBoard = document.querySelector('.main-board__grid');

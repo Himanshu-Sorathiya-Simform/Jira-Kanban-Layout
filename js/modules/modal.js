@@ -7,6 +7,7 @@ const form = document.querySelector('.modal-form');
 const modalTask = document.querySelector('.modal-task');
 
 const modalSubmitButton = document.querySelector('.submit-btn');
+const modalFavoritesButton = document.querySelector('.favorites-btn');
 
 function hideModal() {
 	modalContainer.style.display = 'none';
@@ -36,7 +37,21 @@ function showTaskModal(task) {
 	modalContainer.style.display = 'flex';
 	modalContainer.setAttribute('data-view', 'details');
 
-	modal.querySelector('h2').textContent = `Task : NUC-${task.id}`;
+	modal.querySelector('h2').innerHTML = `
+		<span>Task : NUC-${task.id}</span>
+
+		${
+			task.isFavorites ?
+				`
+					<span>
+						<svg class="icon--medium">
+							<use href="assets/ui-icon-sprite.svg#star"></use>
+						</svg>
+					</span>
+					`
+			:	''
+		}
+	`;
 
 	modalTask.innerHTML = `
         <p><span class='modal-label'>Title : </span><span class='modal-value'>${task.title}</span></p>
@@ -49,6 +64,19 @@ function showTaskModal(task) {
         <p><span class='modal-label'>Reporting to : </span><span class='modal-value'>${task.reporter}</span></p>
         <div><span class='modal-label'>Priority : </span><span class='modal-label'>${task.priority}</span></div>
         <p><span class='modal-label'>Due date : </span><span class='modal-value'>${task.dueDate}</span></p>`;
+
+	modalFavoritesButton.textContent =
+		task.isFavorites ? 'Remove from Favorites' : 'Add to Favorites';
+
+	form.elements.id.value = task.id;
+	form.elements.name.value = task.name;
+	form.elements.title.value = task.title;
+	form.elements.tag.value = task.tag;
+	form.elements.status.value = task.status;
+	form.elements.priority.value = task.priority;
+	form.elements.description.value = task.description;
+	form.elements.dueDate.value = task.dueDate;
+	form.elements.reporting.value = task.reporter;
 }
 
 function showCreateModal() {

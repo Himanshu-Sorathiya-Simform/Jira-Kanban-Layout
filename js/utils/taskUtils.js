@@ -17,7 +17,9 @@ function updateTask(task) {
 	const tasks = JSON.parse(localStorage.getItem('jira_tasks')) || [];
 
 	const index = tasks.findIndex((t) => t.id === task.id);
-	tasks[index] = task;
+
+	tasks[index] = { ...tasks[index], ...task };
+
 	updateTaskCard(tasks.at(index));
 
 	localStorage.setItem('jira_tasks', JSON.stringify(tasks));
