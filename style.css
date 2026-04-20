@@ -608,6 +608,10 @@ button {
 		color: var(--color-primary);
 		outline: 2px solid var(--color-border);
 	}
+
+	&:valid {
+		color: var(--color-primary);
+	}
 }
 
 .main-board__controls-middle {

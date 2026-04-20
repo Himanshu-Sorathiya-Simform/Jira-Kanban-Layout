@@ -1,10 +1,11 @@
 function applyFilters(tasks, filters) {
 	return tasks.filter(
-		({ title, tag, name, priority }) =>
+		({ title, tag, name, priority, isFavorites }) =>
 			(!filters.task || title.includes(filters.task)) &&
 			(!filters.tag || tag === filters.tag) &&
 			(!filters.person || name.includes(filters.person)) &&
-			(!filters.priority || priority === filters.priority),
+			(!filters.priority || priority === filters.priority) &&
+			(!filters.favorites || isFavorites === filters.favorites),
 	);
 }
 

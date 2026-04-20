@@ -41,7 +41,12 @@ function resetFilters() {
 }
 
 function changeFilter(key, value) {
-	filters[key] = value.trim();
+	if (key === 'favorites') {
+		filters[key] = !filters[key];
+
+		document.querySelector('.main-board__icon-btn--star').style.color =
+			filters[key] ? '#0c66e4' : '#455570';
+	} else filters[key] = value.trim();
 
 	if (key === 'person')
 		searchHeaderPersonInput.value = searchBoardPersonInput.value = value;
@@ -60,6 +65,7 @@ const filters = {
 	tag: '',
 	priority: '',
 	person: '',
+	favorites: false,
 };
 
 const orders = {
@@ -67,6 +73,7 @@ const orders = {
 	group: '',
 };
 
+const favoritesButton = document.querySelector('.main-board__icon-btn--star');
 const searchTaskInput = document.querySelector('.header__search-bar');
 const tagDropdown = document.querySelector('.main-board__dropdown--tag');
 const priorityDropdown = document.querySelector('.main-board__dropdown--priority');
@@ -93,6 +100,7 @@ searchHeaderPersonInput.addEventListener('input', () =>
 searchBoardPersonInput.addEventListener('input', () =>
 	changeFilter('person', searchBoardPersonInput.value.toLowerCase()),
 );
+favoritesButton.addEventListener('click', () => changeFilter('favorites'));
 
 sortDropdown.addEventListener('change', () => changeOrder('sort', sortDropdown.value));
 groupDropdown.addEventListener('change', () => changeOrder('group', groupDropdown.value));
