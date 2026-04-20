@@ -13,7 +13,7 @@ function navigate(path) {
 }
 
 window.onpopstate = function () {
-	navigate(location.pathname);
+	routeHandler();
 };
 
 function routeHandler() {
@@ -23,6 +23,8 @@ function routeHandler() {
 	const id = location.pathname.slice(lastIndex + 1);
 
 	const task = tasks.find((task) => +task.id === +id);
+
+	if (!location.pathname) return;
 
 	if (location.pathname !== '/' && Number.isInteger(+location.pathname.slice(1))) {
 		showTaskModal(task);

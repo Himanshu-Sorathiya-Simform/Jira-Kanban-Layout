@@ -17,27 +17,27 @@ function updateColumnCounts() {
 
 function createTaskCard(task) {
 	const html = `
-    <a href="/${task.id}" class='board-card' data-id="${task.id}">
-        <p class='board-card__title'>${task.title}</p>
+    <a href="/${task.id}" class="board-card" data-id="${task.id}">
+        <p class="board-card__title">${task.title}</p>
 
-        <div class='board-card__tags'>
-            <span class='board-card__tag board-card__tag--${task.tag.toLowerCase()}'>${task.tag}</span>
+        <div class="board-card__tags">
+            <span class="board-card__tag board-card__tag--${task.tag.toLowerCase()}">${task.tag}</span>
         </div>
 
-        <div class='board-card__footer'>
-            <div class='board-card__footer-left'>
+        <div class="board-card__footer">
+            <div class="board-card__footer-left">
                 <svg class="icon--medium board-card__priority--${task.priority}">
-                    <use href='/assets/ui-icon-sprite.svg#bookmark'></use>
+                    <use href="/assets/ui-icon-sprite.svg#bookmark"></use>
                 </svg>
 
-                <span class='board-card__id'>NUC-${task.id}</span>
+                <span class="board-card__id">NUC-${task.id}</span>
             </div>
 
-            <div class='board-card__footer-right'>
+            <div class="board-card__footer-right">
                 <img
                     src="${users.get(task.name)}"
                     alt="${task.name}"
-                    class='board-card__creator-avatar'
+                    class="board-card__creator-avatar"
                 />
             </div>
         </div>
@@ -126,6 +126,7 @@ function initializeTagOptions() {
 
 function initializePriorityOptions() {
 	const priorityDropdown = document.querySelector('.main-board__dropdown--priority');
+	const formPriorityDropDown = document.querySelector('#task-priority');
 
 	const priorities = new Set(['high', 'medium', 'low']);
 
@@ -135,6 +136,21 @@ function initializePriorityOptions() {
 		option.textContent = priority[0].toUpperCase() + priority.slice(1).toLowerCase();
 
 		priorityDropdown.appendChild(option);
+		formPriorityDropDown.appendChild(option.cloneNode(true));
+	});
+}
+
+function initializeStatusOptions() {
+	const formStatusDropDown = document.querySelector('#task-status');
+
+	const statuses = new Set(['to-do', 'in-progress', 'in-review', 'done']);
+
+	statuses.forEach((status) => {
+		const option = document.createElement('option');
+		option.value = status;
+		option.textContent = status[0].toUpperCase() + status.slice(1).toLowerCase();
+
+		formStatusDropDown.appendChild(option);
 	});
 }
 
@@ -208,7 +224,8 @@ export {
 	initializeHeader,
 	initializePriorityOptions,
 	initializeSortOptions,
+	initializeStatusOptions,
 	initializeTagOptions,
 	updateColumnCounts,
-	updateTaskCard
+	updateTaskCard,
 };

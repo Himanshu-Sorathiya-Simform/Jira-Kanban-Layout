@@ -5,6 +5,7 @@ import {
 	initializeHeader,
 	initializePriorityOptions,
 	initializeSortOptions,
+	initializeStatusOptions,
 	initializeTagOptions,
 } from './modules/board.js';
 import { navigate } from './modules/routing.js';
@@ -23,6 +24,7 @@ initializeSortOptions();
 initializeGroupOptions();
 initializeTagOptions();
 initializePriorityOptions();
+initializeStatusOptions();
 
 updateFilterAndOrder();
 
