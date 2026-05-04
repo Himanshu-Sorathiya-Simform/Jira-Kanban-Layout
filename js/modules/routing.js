@@ -17,14 +17,14 @@ window.onpopstate = function () {
 };
 
 function routeHandler() {
+	if (!location.pathname) return;
+
 	const tasks = JSON.parse(localStorage.getItem('jira_tasks')) || [];
 
 	const lastIndex = location.pathname.lastIndexOf('/');
 	const id = location.pathname.slice(lastIndex + 1);
 
 	const task = tasks.find((task) => +task.id === +id);
-
-	if (!location.pathname) return;
 
 	if (location.pathname !== '/' && Number.isInteger(+location.pathname.slice(1))) {
 		showTaskModal(task);
@@ -34,6 +34,8 @@ function routeHandler() {
 		showEditModal(task);
 	} else if (location.pathname.startsWith('/delete')) {
 		showDeleteModal(task);
+	} else if (!task && location.pathname !== '/') {
+		navigate('/');
 	} else {
 		hideModal();
 	}

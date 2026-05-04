@@ -61,7 +61,7 @@ function showTaskModal(task) {
 			.join('')}</span></div>
         <p><span class='modal-label'>Description : </span><span class='modal-value'>${task.description}</span></p>
         <p><span class='modal-label'>Person : </span><span class='modal-value'>${task.name}</span></p>
-        <p><span class='modal-label'>Reporting to : </span><span class='modal-value'>${task.reporter}</span></p>
+        <p><span class='modal-label'>Reporting to : </span><span class='modal-value'>${task.reporting}</span></p>
         <div><span class='modal-label'>Priority : </span><span class='modal-label'>${task.priority}</span></div>
         <p><span class='modal-label'>Due date : </span><span class='modal-value'>${task.dueDate}</span></p>`;
 
@@ -76,7 +76,7 @@ function showTaskModal(task) {
 	form.elements.priority.value = task.priority;
 	form.elements.description.value = task.description;
 	form.elements.dueDate.value = task.dueDate;
-	form.elements.reporting.value = task.reporter;
+	form.elements.reporting.value = task.reporting;
 }
 
 function showCreateModal() {
@@ -106,7 +106,7 @@ function showEditModal(task) {
 	form.elements.priority.value = task.priority;
 	form.elements.description.value = task.description;
 	form.elements.dueDate.value = task.dueDate;
-	form.elements.reporting.value = task.reporter;
+	form.elements.reporting.value = task.reporting;
 }
 
 function showDeleteModal(task) {

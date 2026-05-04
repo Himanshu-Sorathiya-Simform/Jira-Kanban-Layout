@@ -1,3 +1,4 @@
+import { tasks } from './data/data.js';
 import { updateFilterAndOrder } from './handlers/filterAndOrderHandlers.js';
 import {
 	initializeAvatars,
@@ -8,17 +9,24 @@ import {
 	initializeStatusOptions,
 	initializeTagOptions,
 } from './modules/board.js';
-import { navigate } from './modules/routing.js';
 
-localStorage.setItem(
-	'jira_task_id',
-	localStorage.getItem('jira_task_id') ? localStorage.getItem('jira_task_id') : '85',
-);
+const JIRA_TASK_ID_KEY = 'jira_task_id';
+const JIRA_TASKS_KEY = 'jira_tasks';
 
-const mainBoard = document.querySelector('.main-board__grid');
+const jiraId =
+	localStorage.getItem(JIRA_TASK_ID_KEY) ?
+		localStorage.getItem(JIRA_TASK_ID_KEY)
+	:	'85';
+const jiraTasks =
+	localStorage.getItem(JIRA_TASKS_KEY) ?
+		localStorage.getItem(JIRA_TASKS_KEY)
+	:	JSON.stringify(tasks);
 
-initializeHeader();
+localStorage.setItem(JIRA_TASK_ID_KEY, jiraId);
+localStorage.setItem(JIRA_TASKS_KEY, jiraTasks);
+
 initializeAvatars();
+initializeHeader();
 
 initializeSortOptions();
 initializeGroupOptions();
@@ -27,15 +35,3 @@ initializePriorityOptions();
 initializeStatusOptions();
 
 updateFilterAndOrder();
-
-mainBoard.addEventListener('click', (e) => {
-	const target = e.target.closest('.board-card');
-
-	const id = target?.dataset.id;
-
-	if (!id) return;
-
-	e.preventDefault();
-
-	navigate(target.href);
-});

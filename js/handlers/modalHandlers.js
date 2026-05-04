@@ -13,6 +13,8 @@ function toggleFavorites() {
 	updateFilterAndOrder();
 }
 
+function validateForm(fields) {}
+
 function handleSubmission(e) {
 	e.preventDefault();
 
@@ -37,36 +39,28 @@ function handleSubmission(e) {
 		return;
 	}
 
-	if (
-		id &&
-		name &&
-		title &&
-		tag &&
-		status &&
-		priority &&
-		description &&
-		dueDate &&
-		reporting
-	) {
-		const task = {
-			id,
-			name,
-			title,
-			tag,
-			status,
-			priority,
-			description,
-			dueDate,
-			reporter: reporting,
-		};
+	const fields = {
+		id,
+		name,
+		title,
+		tag,
+		status,
+		priority,
+		description,
+		dueDate,
+		reporting,
+	};
 
+	if (validateForm(fields)) {
 		if (action === 'update') {
-			updateTask(task);
+			updateTask(fields);
+
 			updateFilterAndOrder();
 		}
 
 		if (action === 'create') {
-			addTask(task);
+			addTask(fields);
+
 			resetFilters();
 		}
 

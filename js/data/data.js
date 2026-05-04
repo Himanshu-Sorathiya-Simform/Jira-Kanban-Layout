@@ -29,7 +29,7 @@ const tasks = [
 		description:
 			'Outline the architecture changes needed to support multi-currency invoicing and automatic tax calculation for EU regions.',
 		dueDate: '2024-06-15',
-		reporter: 'manager1',
+		reporting: 'manager1',
 		isFavorites: true,
 	},
 	{
@@ -42,7 +42,7 @@ const tasks = [
 		description:
 			'Allow users to link multiple social media accounts for faster login. Investigate OAuth2 implementation for Apple ID.',
 		dueDate: '2024-06-01',
-		reporter: 'person2',
+		reporting: 'person2',
 		isFavorites: false,
 	},
 	{
@@ -55,7 +55,7 @@ const tasks = [
 		description:
 			'Implement server-side validation and sanitization for all entry points to prevent XSS and injection attacks.',
 		dueDate: '2024-05-18',
-		reporter: 'person4',
+		reporting: 'person4',
 		isFavorites: true,
 	},
 	{
@@ -68,7 +68,7 @@ const tasks = [
 		description:
 			'Analyze and reduce the bundle size of the checkout page. Focus on lazy loading heavy payment modules.',
 		dueDate: '2024-05-15',
-		reporter: 'manager1',
+		reporting: 'manager1',
 		isFavorites: false,
 	},
 	{
@@ -81,7 +81,7 @@ const tasks = [
 		description:
 			'Pull logs for account deletions over the last 90 days. Categorize reasons provided in the optional exit survey.',
 		dueDate: '2024-06-20',
-		reporter: 'person3',
+		reporting: 'person3',
 		isFavorites: false,
 	},
 	{
@@ -94,7 +94,7 @@ const tasks = [
 		description:
 			'Ensure that user comments submitted through the mobile app are correctly stored in the Feedback table.',
 		dueDate: '2024-05-15',
-		reporter: 'person4',
+		reporting: 'person4',
 		isFavorites: true,
 	},
 	{
@@ -107,7 +107,7 @@ const tasks = [
 		description:
 			'Visual update to the search wizard. Users should see how many steps are left before results are generated.',
 		dueDate: '2024-05-25',
-		reporter: 'person1',
+		reporting: 'person1',
 		isFavorites: true,
 	},
 	{
@@ -120,7 +120,7 @@ const tasks = [
 		description:
 			'Fix a bug where the "Submit" button stays disabled even when all fields are valid.',
 		dueDate: '2024-05-09',
-		reporter: 'person2',
+		reporting: 'person2',
 		isFavorites: false,
 	},
 	{
@@ -133,7 +133,7 @@ const tasks = [
 		description:
 			'Create a cron job that matches Stripe transactions against internal database records every Sunday at midnight.',
 		dueDate: '2024-06-05',
-		reporter: 'manager1',
+		reporting: 'manager1',
 		isFavorites: true,
 	},
 	{
@@ -146,7 +146,7 @@ const tasks = [
 		description:
 			'Create high-fidelity mockups for adding up to 5 destinations in a single trip flow.',
 		dueDate: '2024-05-12',
-		reporter: 'person4',
+		reporting: 'person4',
 		isFavorites: true,
 	},
 	{
@@ -159,7 +159,7 @@ const tasks = [
 		description:
 			'Establish a dedicated Slack webhook to pipe high-priority bugs reported by beta users directly to the dev channel.',
 		dueDate: '2024-05-22',
-		reporter: 'person1',
+		reporting: 'person1',
 		isFavorites: false,
 	},
 	{
@@ -172,7 +172,7 @@ const tasks = [
 		description:
 			'Update the search algorithm to prioritize direct flight paths when users select more than two cities.',
 		dueDate: '2024-05-14',
-		reporter: 'manager1',
+		reporting: 'manager1',
 		isFavorites: false,
 	},
 	{
@@ -185,7 +185,7 @@ const tasks = [
 		description:
 			'Tag recent Net Promoter Score comments into "UI/UX", "Pricing", and "Performance" categories for the monthly review.',
 		dueDate: '2024-05-11',
-		reporter: 'person2',
+		reporting: 'person2',
 		isFavorites: true,
 	},
 	{
@@ -198,7 +198,7 @@ const tasks = [
 		description:
 			'Connect the backend to Stripe and PayPal APIs. Securely handle webhooks for subscription renewal.',
 		dueDate: '2024-05-20',
-		reporter: 'manager1',
+		reporting: 'manager1',
 		isFavorites: false,
 	},
 	{
@@ -210,7 +210,7 @@ const tasks = [
 		priority: 'high',
 		description: 'Verify search result card layouts on iPhone SE and Galaxy Fold.',
 		dueDate: '2024-05-07',
-		reporter: 'person3',
+		reporting: 'person3',
 		isFavorites: true,
 	},
 	{
@@ -223,7 +223,7 @@ const tasks = [
 		description:
 			'Build a reusable form engine that renders inputs based on a JSON schema.',
 		dueDate: '2024-05-22',
-		reporter: 'person1',
+		reporting: 'person1',
 		isFavorites: false,
 	},
 	{
@@ -236,7 +236,7 @@ const tasks = [
 		description:
 			'Resolved issue where tokens were expiring in 5 minutes instead of the intended 24 hours.',
 		dueDate: '2024-04-30',
-		reporter: 'person3',
+		reporting: 'person3',
 		isFavorites: false,
 	},
 	{
@@ -249,7 +249,7 @@ const tasks = [
 		description:
 			'Check that all currency displays follow the international formatting standard.',
 		dueDate: '2024-05-06',
-		reporter: 'manager1',
+		reporting: 'manager1',
 		isFavorites: true,
 	},
 	{
@@ -262,7 +262,7 @@ const tasks = [
 		description:
 			'Replace heavy CSS-in-JS patterns with optimized Tailwind classes in the billing dashboard.',
 		dueDate: '2024-05-10',
-		reporter: 'person4',
+		reporting: 'person4',
 		isFavorites: false,
 	},
 	{
@@ -274,7 +274,7 @@ const tasks = [
 		priority: 'medium',
 		description: 'Synthesize the results from the April user testing group.',
 		dueDate: '2024-05-08',
-		reporter: 'person1',
+		reporting: 'person1',
 		isFavorites: true,
 	},
 	{
@@ -287,7 +287,7 @@ const tasks = [
 		description:
 			'Run final smoke tests in the staging environment. Coordinate with DevOps.',
 		dueDate: '2024-05-05',
-		reporter: 'person2',
+		reporting: 'person2',
 		isFavorites: false,
 	},
 	{
@@ -300,7 +300,7 @@ const tasks = [
 		description:
 			'Users in the APAC region are seeing 2s+ delay on query results. Check Elasticsearch cluster health.',
 		dueDate: '2024-05-28',
-		reporter: 'person4',
+		reporting: 'person4',
 		isFavorites: true,
 	},
 	{
@@ -313,7 +313,7 @@ const tasks = [
 		description:
 			'Review current search forms against WCAG 2.1 guidelines for screen reader compatibility.',
 		dueDate: '2024-06-10',
-		reporter: 'manager1',
+		reporting: 'manager1',
 		isFavorites: false,
 	},
 	{
@@ -326,7 +326,7 @@ const tasks = [
 		description:
 			'Update UI to show more descriptive errors when a card is declined or has insufficient funds.',
 		dueDate: '2024-05-30',
-		reporter: 'person2',
+		reporting: 'person2',
 		isFavorites: false,
 	},
 	{
@@ -339,7 +339,7 @@ const tasks = [
 		description:
 			'Run migration script to move user preferences into the new JSONB column in PostgreSQL.',
 		dueDate: '2024-06-05',
-		reporter: 'person1',
+		reporting: 'person1',
 		isFavorites: true,
 	},
 ];

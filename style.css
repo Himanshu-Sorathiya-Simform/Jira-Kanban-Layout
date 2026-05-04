@@ -540,10 +540,10 @@ button {
 
 .board__search {
 	position: relative;
-	width: 25%;
 }
 
 .board__search-bar {
+	width: 15rem;
 	color: var(--color-text-primary);
 	padding: 0.6rem 4rem 0.6rem 0.6rem;
 
@@ -993,6 +993,10 @@ button {
 
 	.header__menu-btn {
 		display: block;
+	}
+
+	.board__search-bar {
+		width: 100%;
 	}
 
 	.main-board__icon-btn {
