@@ -17,7 +17,6 @@ const priorityMap = {
 
 const sortHandlers = {
 	due_date_ascending: (a, b) => new Date(a.dueDate) - new Date(b.dueDate),
-
 	due_date_descending: (a, b) => new Date(b.dueDate) - new Date(a.dueDate),
 
 	id_ascending: (a, b) => +a.id - +b.id,

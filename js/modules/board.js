@@ -17,8 +17,8 @@ function updateColumnCounts() {
 
 function createTaskCard(task) {
 	const html = `
-    <a href="/${task.id}" class="board-card" data-id="${task.id}">
-        <p class="board-card__title">${task.title}</p>
+    <article class="board-card" data-id="${task.id}">
+        <a href="/${task.id}" class="board-card__title">${task.title}</a>
 
         <div class="board-card__tags">
             <span class="board-card__tag board-card__tag--${task.tag.toLowerCase()}">${task.tag}</span>
@@ -53,7 +53,7 @@ function createTaskCard(task) {
                 />
             </div>
         </div>
-    </a>`;
+    </article>`;
 
 	const targetColumn = document.querySelector(`[data-key="${task.status}"]`);
 	targetColumn.querySelector('ul').insertAdjacentHTML('beforeend', html);

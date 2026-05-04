@@ -9,11 +9,14 @@ function toggleFavorites() {
 	const task = tasks.find((t) => t.id === id);
 
 	updateTask({ ...task, isFavorites: !task.isFavorites });
+
 	closeModal();
 	updateFilterAndOrder();
 }
 
-function validateForm(fields) {}
+function validateForm(fields) {
+	return true;
+}
 
 function handleSubmission(e) {
 	e.preventDefault();

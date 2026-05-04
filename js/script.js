@@ -1,5 +1,7 @@
 import { tasks } from './data/data.js';
 import { updateFilterAndOrder } from './handlers/filterAndOrderHandlers.js';
+import './handlers/modalHandlers.js';
+import './handlers/routingHandlers.js';
 import {
 	initializeAvatars,
 	initializeGroupOptions,

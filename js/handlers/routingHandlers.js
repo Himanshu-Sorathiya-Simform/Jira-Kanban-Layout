@@ -14,7 +14,7 @@ function handleShow(e) {
 
 	e.preventDefault();
 
-	navigate(target.href);
+	navigate(target.querySelector('.board-card__title').href);
 }
 
 function handleCreate() {

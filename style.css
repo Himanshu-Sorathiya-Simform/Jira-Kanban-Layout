@@ -728,16 +728,32 @@ button {
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
+
+	&:focus-within {
+		outline: 2px solid var(--color-text-secondary);
+		outline-offset: -2px;
+	}
 }
 
 .board-card__title {
 	color: var(--color-text-secondary);
 	font-size: 1.8rem;
+	text-decoration: none;
+	outline: none;
+	cursor: pointer;
+	-webkit-tap-highlight-color: transparent;
+
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
 	line-clamp: 2;
 	-webkit-line-clamp: 2;
 	overflow: hidden;
+
+	&:is(:focus, :hover, :link, :visited, :active) {
+		color: inherit;
+		background: none;
+		text-decoration: none;
+	}
 }
 
 .board-card__tags {
