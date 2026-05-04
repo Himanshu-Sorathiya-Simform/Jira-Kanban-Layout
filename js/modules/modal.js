@@ -8,6 +8,7 @@ const modalTask = document.querySelector('.modal-task');
 
 const modalSubmitButton = document.querySelector('.submit-btn');
 const modalFavoritesButton = document.querySelector('.favorites-btn');
+const formErrorEle = document.querySelector('.form-error');
 
 function hideModal() {
 	modalContainer.style.display = 'none';
@@ -21,6 +22,8 @@ function resetModal() {
 	modalSubmitButton.textContent = 'Submit';
 
 	modalContainer.setAttribute('data-view', '');
+
+	formErrorEle.textContent = '';
 }
 
 function closeModal(e) {

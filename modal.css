@@ -41,8 +41,6 @@
 
 		svg {
 			color: var(--color-card-medium);
-			fill: var(--color-card-medium);
-			/* bgc: var(--color-card-medium); */
 		}
 	}
 }
@@ -113,6 +111,12 @@
 	display: flex;
 	flex-direction: column;
 	gap: 0.5rem;
+}
+
+.form-error {
+	font-size: 1.5rem;
+	text-align: center;
+	color: var(--color-card-high);
 }
 
 .form-actions,

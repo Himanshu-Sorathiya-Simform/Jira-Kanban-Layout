@@ -15,6 +15,40 @@ function toggleFavorites() {
 }
 
 function validateForm(fields) {
+	if (
+		!fields.name ||
+		!fields.title ||
+		!fields.tag ||
+		!fields.status ||
+		!fields.priority ||
+		!fields.description ||
+		!fields.dueDate ||
+		!fields.reporting
+	) {
+		formErrorEle.textContent = 'Please fill all the fields';
+		return false;
+	}
+
+	if (fields.name.length < 3) {
+		formErrorEle.textContent = 'Person name must be at least 3 letters';
+		return false;
+	}
+
+	if (fields.title.length < 3) {
+		formErrorEle.textContent = 'Title must be at least 3 letters';
+		return false;
+	}
+
+	if (fields.reporting.length < 3) {
+		formErrorEle.textContent = 'Person reporting name must be at least 3 letters';
+		return false;
+	}
+
+	if (new Date(fields.dueDate) === 'Invalid Date') {
+		formErrorEle.textContent = 'Due Date must be a date';
+		return false;
+	}
+
 	return true;
 }
 
@@ -80,6 +114,8 @@ const modalCancelButton = document.querySelector('.cancel-btn');
 const modalSubmitButton = document.querySelector('.submit-btn');
 
 const modalFavoritesButton = document.querySelector('.favorites-btn');
+
+const formErrorEle = document.querySelector('.form-error');
 
 modalContainer.addEventListener('click', (e) => closeModal(e));
 modalCloseButton.addEventListener('click', () => closeModal());
